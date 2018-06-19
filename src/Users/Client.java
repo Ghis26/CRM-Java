@@ -1,15 +1,13 @@
-package com.company;
-
-import com.sun.org.apache.xpath.internal.operations.String;
+package Users;
 
 /**
- * La classe com.company.Client définit les attributs d'un client
+ * La classe Users.Client définit les attributs d'un client
  *
  * @author Ghis
  * @version 1.0
  */
 
-public class Client {
+public class Client extends User{
 
     /**
      *La variable budget définit le montant du portefeuille du client à sa création.
@@ -19,11 +17,17 @@ public class Client {
     private double budget;
 
     /**
-     * La variable basket est un tableau contenant l'ensemble des produits de l'objet com.company.Basket.
+     * La variable basket est un tableau contenant l'ensemble des produits de l'objet Basket.Basket.
      * @see Client#getBasket();
      * @see Client#setBasket(String[]);
      */
     private String basket[];
+
+
+    private String statut;
+
+    // --------------------------------------------------------------------------------------------------------------
+
 
     /**
      * Constructeur permettant d'initier le budget initial du client, ainsi qu'un tableau de 10 cases
@@ -31,9 +35,20 @@ public class Client {
      * @see Client#budget;
      * @see Client#basket;
      */
+
     public Client(){
+        super();
         budget = 10000;
         basket = new String[10];
+        statut = "client";
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+
+    public String getStatut() {
+        statut = super.getStatut();
+        return statut;
     }
 
     /**
@@ -72,6 +87,7 @@ public class Client {
     public void setBudget(double budget) {
         this.budget = budget;
     }
+
 }
 
 

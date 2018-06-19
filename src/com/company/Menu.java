@@ -1,5 +1,8 @@
 package com.company;
 
+import Basket.Product;
+import Users.User;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,19 +21,34 @@ public class Menu {
     /**
      * la variable choice stocke le choix de l'utilisateur.
      */
-    private int choice = 0;
+    private int choice;
 
 
     /**
      * la variable exitProject définit la sortie du programme ou non.
      */
-    private boolean exitProject = false;
+    private boolean exitProject;
 
     /**
      * La variable productList définit la liste de tous les produits créés.
      */
     private ArrayList<Product> productList = new ArrayList<>(20);
 
+// --------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Constructeur permettant d'initier les variables du Menu
+     *
+     * @see Menu#choice;
+     * @see Menu#exitProject;
+     */
+
+    public Menu() {
+        choice = 0;
+        exitProject = false;
+    }
+
+// --------------------------------------------------------------------------------------------------------------
 
     /**
      * La méthode showMenu permet d'afficher le menu des choix
@@ -38,13 +56,17 @@ public class Menu {
      * @param user;
      */
 
-    protected void showMenu(User user) {
+    public void showMenu(User user) {
         do {
-            System.out.println("Bonjour " + user.getLogin() + ", veuillez choisir parmi les propositions suivantes :");
+            System.out.println(user.getLogin() + ", veuillez choisir parmi les propositions suivantes :");
             System.out.println("1 - Affichez votre profil");
             System.out.println("2 - Modifiez votre profil");
-            System.out.println("3 - Créez un produit");
-            System.out.println("4 - Affichez la liste des produits");
+            if (user.getStatut().equals("commercial")) {
+                System.out.println("3 - Créez un produit");
+            }
+            if (user.getStatut().equals("client")) {
+                System.out.println("4 - Affichez la liste des produits");
+            }
             System.out.println("5 - Quittez le programme");
 
             System.out.println("Votre choix :");
@@ -61,13 +83,25 @@ public class Menu {
                     exitProject = false;
                     break;
                 case 3:
-                    newProduct();
-                    exitProject = false;
-                    break;
+                    if (user.getStatut().equals("commercial")) {
+                        newProduct();
+                        exitProject = false;
+                        break;
+                    }else{
+                        System.out.println("Vous n'avez pas l'autorisation");
+                        exitProject = false;
+                        break;
+                    }
                 case 4:
-                    showProduct();
-                    exitProject = false;
-                    break;
+                    if (user.getStatut().equals("client")) {
+                        showProduct();
+                        exitProject = false;
+                        break;
+                    }else{
+                        System.out.println("Vous n'avez pas l'autorisation");
+                        exitProject = false;
+                        break;
+                    }
                 default:
                     user.disconnect();
                     exitProject = true;
@@ -78,7 +112,7 @@ public class Menu {
     /**
      * La méthode newProduct permet d'instancier un nouveau produit
      */
-    public Product newProduct() {
+    private void newProduct() {
         Product product = new Product();
         System.out.println("Création de votre produit :");
         System.out.println("Saisissez l'ID de votre produit :");
@@ -91,13 +125,12 @@ public class Menu {
         product.setPrice(sc.nextFloat());
         productList.add(product);
         System.out.println("Votre produit a bien été créé !");
-        return product;
     }
 
     /**
-     *
+     *La méthode showProduct permet d'afficher l'ensemble des produits créés
      */
-    public void showProduct() {
+    private void showProduct() {
         String newLine = System.getProperty("line.separator");
         System.out.println("Voici la liste des produits créés à ce jour : " + newLine);
         for (int i = 0; i < productList.size(); i++) {

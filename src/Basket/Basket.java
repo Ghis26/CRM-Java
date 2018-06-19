@@ -1,8 +1,8 @@
-package com.company;
+package Basket;
 
 import java.util.ArrayList;
 /**
- * La classe com.company.Basket définit le panier total du client. Il contient plusieurs BasketItems.
+ * La classe Basket.Basket définit le panier total du client. Il contient plusieurs BasketItems.
  *
  * @author Ghis
  * @version 1.0
@@ -13,18 +13,18 @@ public class Basket {
 
 
     /**
-     * Ceci est un tableau contenant l'ensemble des BasketItems du com.company.Basket.
+     * Ceci est un tableau contenant l'ensemble des BasketItems du Basket.Basket.
      *
      * @see Basket#getBasketItems();
      * @see Basket#addToCart() ;
      */
 
-    protected ArrayList<BasketItem> basketItems;
+    private ArrayList<BasketItem> basketItems;
 
     /**
      * L'enumération allSstatus est la liste de tous les statuts possibles du panier.
      */
-    protected enum allStatus {
+    private enum allStatus {
         enCours,
         Paye,
         Annule;
@@ -36,7 +36,7 @@ public class Basket {
      * @see Basket#getStatus();
      * @see Basket#setStatus(String);
      */
-    protected String status;
+    private String status;
 
 
     /**
@@ -44,7 +44,7 @@ public class Basket {
      * @see Basket#addToCart();
      */
 
-    protected String productId;
+    private String productId;
 
 
 
@@ -61,7 +61,7 @@ public class Basket {
     public Basket() {
         basketItems = new ArrayList<>(10);
         status = "";
-//        productId = com.company.Product.getId();
+//        productId = Basket.Product.getId();
 
     }
 
@@ -71,7 +71,7 @@ public class Basket {
 
 
     /**
-     * La méthode getStatus permet de retourner le statut actuel du com.company.Basket.
+     * La méthode getStatus permet de retourner le statut actuel du Basket.Basket.
      * @return status;
      */
 
@@ -81,7 +81,7 @@ public class Basket {
 
 
     /**
-     * La méthode getBasketItems permet de retourner le contenu actuel du com.company.Basket.
+     * La méthode getBasketItems permet de retourner le contenu actuel du Basket.Basket.
      * @return basketItems;
      */
     public ArrayList<BasketItem> getBasketItems() {

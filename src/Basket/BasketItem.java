@@ -1,7 +1,7 @@
-package com.company;
+package Basket;
 
 /**
- * La classe com.company.BasketItem permet de créer le produit ajouté dans le panier (com.company.Basket)
+ * La classe Basket.BasketItem permet de créer le produit ajouté dans le panier (Basket.Basket)
  *
  * @author Ghis
  * @version 1.0
@@ -16,7 +16,7 @@ public class BasketItem {
      * @see BasketItem#getId();
      * @see BasketItem#setId(int);
      */
-    protected int id;
+    private int id;
 
     /**
      * La quantity idnetifie la quantité de produits ajoutée dans le panier.
@@ -25,7 +25,7 @@ public class BasketItem {
      * @see BasketItem#setQuantity(int);
      */
 
-    protected int quantity;
+    private int quantity;
 
 
 

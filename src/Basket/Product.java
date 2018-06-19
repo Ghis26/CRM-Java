@@ -1,9 +1,9 @@
-package com.company;
+package Basket;
 
 import java.util.Scanner;
 
 /**
- * La classe com.company.Product définit les attributs d'un produit
+ * La classe Basket.Product définit les attributs d'un produit
  *
  * @author Ghis
  * @version 1.0
@@ -140,6 +140,8 @@ public class Product {
     public void setPrice(float price) {
         this.price = price;
     }
+
+// --------------------------------------------------------------------------------------------------------------
 
     /**
      * Méthode toString permet de retourner une String avec l'ensemble des éléments du produit créé
