@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in); // Permet de récupérer les éléments inscrits par l'utilisateur
         User user = new User(); // Instancie un nouvel user
-        Product product = new Product();// Instancie un nouveau produit
         Menu menu = new Menu(); // Instancie le menu
+
 
         System.out.println("Veuillez saisir votre nom :");
 
@@ -19,8 +20,7 @@ public class Main {
 
         user.setPassword(sc.nextLine());
 
-        menu.showMenu(user, product);
-
+        menu.showMenu(user);
 
     }
 }

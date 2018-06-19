@@ -99,7 +99,7 @@ public class Basket {
 //    /**
 //     * La méthode addToCart permet d'ajouter des basketItems à la variable.
 //     */
-//    public com.company.BasketItem addToCart(productId) {
+//    public BasketItem addToCart(productId) {
 //        basketItems.add(productId);
 //    }
 }
