@@ -6,10 +6,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // Permet de récupérer les éléments inscrits par l'utilisateur
+        User user = new User(); // Instancie un nouvel user
+        Product product = new Product();// Instancie un nouveau produit
+        Menu menu = new Menu(); // Instancie le menu
 
-       Product product1 = new Product();
+        System.out.println("Veuillez saisir votre nom :");
 
-        System.out.println("Le produit identifié porte l'ID : " +product1.getId());
+        user.setLogin(sc.nextLine());
+
+        System.out.println("Veuillez saisir votre mot de passe :");
+
+        user.setPassword(sc.nextLine());
+
+        menu.showMenu(user, product);
+
+
     }
 }

@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * La classe com.company.Product définit les attributs d'un produit
  *
@@ -8,13 +11,21 @@ package com.company;
  */
 
 public class Product {
+
+    private Scanner sc = new Scanner(System.in);
     /**
      * l'id est l'identifiant du produit
      *
      * @see Product#getId();
      * @see Product#setId(int) ;
      */
-    protected int id;
+    private int id;
+
+
+    /**
+     * name est le nom du produit
+     */
+    private String name;
 
     /**
      * quantity indique la quantité de produits en stock.
@@ -23,7 +34,7 @@ public class Product {
      * @see Product#setStock(int) ;
      */
 
-    protected int stock;
+    private int stock;
 
     /**
      * price indique le prix d'un produit.
@@ -31,8 +42,13 @@ public class Product {
      * @see Product#getPrice();
      * @see Product#setPrice(float);
      */
-    protected float price;
+    private float price;
 
+    /**
+     * Cette liste crée une nouvelle liste de produits.
+     */
+
+    private  ArrayList<String> productList = new ArrayList<>(20);
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -49,6 +65,7 @@ public class Product {
      */
     public Product() {
         id = 0;
+        name = "";
         stock = 0;
         price = 0;
 
@@ -68,6 +85,17 @@ public class Product {
     public int getId() {
         return id;
     }
+
+
+    /**
+     * Getter qui retourne le nom du produit.
+     * @return le nom du produit.
+     */
+
+    public String getName(){
+        return name;
+    }
+
 
     /**
      * Getter qui retourne la quantité de produits.
@@ -97,6 +125,15 @@ public class Product {
     }
 
     /**
+     * Permet d'affecter le nom du produit à la variable name.
+     *
+     * @param name;
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * Permet d'affecter la quantité actuelle de produits en stock à la variable quantity.
      *
      * @param stock;
@@ -112,5 +149,32 @@ public class Product {
      */
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public String toString (){
+        return "Nom du produit : "+this.getName()+ ": stock : "+this.getStock()+", prix : "+ this.getPrice()+" €";
+    }
+
+    public void newProduct(){
+        Product product = new Product();
+        System.out.println("Création de votre produit :");
+        System.out.println("Saisissez l'ID de votre produit :");
+        product.setId(sc.nextInt());
+        System.out.println("Saisissez le nom de votre produit :");
+        product.setName(sc.next());
+        System.out.println("Saisissez le nombre de produits en stock :");
+        product.setStock(sc.nextInt());
+        System.out.println("Saisissez le prix de votre produit :");
+        product.setPrice(sc.nextFloat());
+        productList.add(product.toString());
+        System.out.println("Votre produit a bien été créé !");
+    }
+
+
+    public void showProduct() {
+        System.out.println("Voici la liste des produits créés à ce jour : ");
+        for (int i = 0; i < productList.size(); i++) {
+            System.out.println(productList.get(i));
+        }
     }
 }

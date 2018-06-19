@@ -1,12 +1,15 @@
 package com.company;
 
+import java.util.Scanner;
+
 /**
  * La classe com.company.User est la classe parente des autres utilisateurs.
  */
 
 public class User {
+    private Scanner sc = new Scanner(System.in);
     protected String login;
-    protected String password;
+    private String password;
 
     public User(){
         login   = "";
@@ -35,5 +38,22 @@ public class User {
 
     public void disconnect(){
         System.out.println("A bientôt !");
+
+    }
+
+    public void showProfile(User user){
+        System.out.println("Votre profil : ");
+        System.out.println("Votre nom d'utilisateur : "+user.getLogin());
+        System.out.println("Votre mot de passe : "+user.getPassword());
+    }
+
+    public void modifProfile(){
+        System.out.println("Modifiez votre profil :");
+        System.out.println("Modifiez votre nom :");
+        setLogin(sc.nextLine());
+        System.out.println("Votre nouveau nom : "+getLogin());
+        System.out.print("Modifiez votre mot de passe :");
+        setPassword(sc.next());
+        System.out.print("Votre nouveau mot de passe : "+getPassword());
     }
 }
