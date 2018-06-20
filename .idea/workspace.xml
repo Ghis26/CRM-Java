@@ -5,8 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6dbfd62-de5a-4a8a-a1e9-fc57de4a6d4d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/Basket.allStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/Basket.allStatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/Basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/Basket.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/BasketItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/BasketItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/Product.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/Product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/Administrateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/Administrateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/Client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/Commercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/Commercial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRM client/Users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/Users/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRM client/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/com/company/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Basket/BasketItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Basket/BasketItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Basket/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Basket/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
     </list>
@@ -20,11 +61,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="79" column="45" selection-start-line="79" selection-start-column="45" selection-end-line="79" selection-end-column="45" />
+            <state relative-caret-position="381">
+              <caret line="197" column="20" lean-forward="true" selection-end-line="238" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasketItem.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Basket/BasketItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="109" column="27" lean-forward="true" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+              <folding>
+                <element signature="e#2540#2541#0" expanded="true" />
+                <element signature="e#2596#2597#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Users/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="42" selection-end-line="110" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,10 +129,10 @@
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/Users/Client.java" />
         <option value="$PROJECT_DIR$/src/Basket/Basket.java" />
-        <option value="$PROJECT_DIR$/src/Users/User.java" />
-        <option value="$PROJECT_DIR$/src/Basket/BasketItem.java" />
         <option value="$PROJECT_DIR$/src/Basket/Product.java" />
         <option value="$PROJECT_DIR$/src/com/company/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Users/User.java" />
+        <option value="$PROJECT_DIR$/src/Basket/BasketItem.java" />
       </list>
     </option>
   </component>
@@ -173,7 +239,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32881" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.37682673" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -194,10 +260,9 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32881" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32881" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18580376" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32985386" />
@@ -209,6 +274,7 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32881" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39979124" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -381,34 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Users/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="105" column="39" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Basket/BasketItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="103" column="131" selection-start-line="103" selection-start-column="131" selection-end-line="103" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Basket/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="145" column="163" selection-start-line="145" selection-start-column="163" selection-end-line="145" selection-end-column="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Basket/Basket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
@@ -426,12 +464,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Basket/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="145" column="163" selection-start-line="145" selection-start-column="163" selection-end-line="145" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Basket/Basket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="105" column="5" lean-forward="true" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="79" column="45" selection-start-line="79" selection-start-column="45" selection-end-line="79" selection-end-column="45" />
+        <state relative-caret-position="381">
+          <caret line="197" column="20" lean-forward="true" selection-end-line="238" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Users/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="42" selection-end-line="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Basket/BasketItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="109" column="27" lean-forward="true" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+          <folding>
+            <element signature="e#2540#2541#0" expanded="true" />
+            <element signature="e#2596#2597#0" expanded="true" />
           </folding>
         </state>
       </provider>

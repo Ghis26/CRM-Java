@@ -38,7 +38,6 @@ public class BasketItem {
 
     /**
      * Constructeur qui permet d'initier les variables id et quantity lors de la création d'un nouvel objet.
-     *
      */
 
     public BasketItem() {
@@ -98,18 +97,20 @@ public class BasketItem {
 
     /**
      * Permet de retourner les données de l'objet contenues dans le tableau sous forme de phrase.
+     *
      * @return String;
      */
     public String toString() {
-        return "Id du Produit : " + this.getId() + ", quantité : " + getQuantity()+ " pour un montant de : " +getItemPrice()+ " €\n";
+        return "Id du Produit : " + this.getId() + ", quantité : " + getQuantity() + " pour un montant de : " + getItemPrice() + " €\n";
     }
 
     /**
      * Permet de calculer le montant du BasketItem.
+     *
      * @param productPrice;
      */
 
-    public void multiply(float productPrice){
+    public void multiply(float productPrice) {
         itemPrice = productPrice * getQuantity();
     }
 }

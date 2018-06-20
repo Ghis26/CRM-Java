@@ -46,7 +46,6 @@ public class Menu {
 
     /**
      * Constructeur permettant d'initier les variables du Menu
-     *
      */
 
     public Menu() {
@@ -65,15 +64,15 @@ public class Menu {
     public void showMenu(User user) {
         do {
             System.out.println(user.getLogin() + ", veuillez choisir parmi les propositions suivantes :\n");
-            System.out.println("1 - Affichez votre profil\n");
-            System.out.println("2 - Modifiez votre profil\n");
-            System.out.println("3 - Créez un produit\n");
+            System.out.println("1 - Affichez votre profil");
+            System.out.println("2 - Modifiez votre profil");
+            System.out.println("3 - Créez un produit");
             if (user.getStatut().equals("client")) {
-                System.out.println("4 - Affichez la liste des produits\n");
-                System.out.println("5 - Ajouter un produit au panier\n");
-                System.out.println("6 - Voir votre panier\n");
-                System.out.println("7 - Payez vos achats\n");
-                System.out.println("8 - Réapprovisionnez votre porte-monnaie\n");
+                System.out.println("4 - Affichez la liste des produits");
+                System.out.println("5 - Ajouter un produit au panier");
+                System.out.println("6 - Voir votre panier");
+                System.out.println("7 - Payez vos achats");
+                System.out.println("8 - Réapprovisionnez votre porte-monnaie");
             }
             System.out.println("9 - Quittez le programme\n");
 
@@ -161,7 +160,7 @@ public class Menu {
     private void showProduct() {
         System.out.println("Voici la liste des produits créés à ce jour : \n");
         for (int i = 0; i < productList.size(); i++) {
-            System.out.println(productList.get(i).toString()+"\n");
+            System.out.println(productList.get(i).toString() + "\n");
         }
     }
 
@@ -170,7 +169,7 @@ public class Menu {
      */
     private void addtoCart() {
         if (basket == null) {
-            basket = new Basket();
+            Basket basket = new Basket();
         }
         BasketItem basketItem = new BasketItem();
         System.out.println("Saisissez l'ID du produit que vous souhaitez ajouter au panier : ");
@@ -184,12 +183,11 @@ public class Menu {
         System.out.println("l'ajout au panier a bien été fait ! Le montant total du panier s'élève à : " + basket.getTotalPrice() + " €\n");
     }
 
-
     /**
      * La méthode findProduct permet de récupérer l'objet Product correspondant à l'ID entré dans le basketItem.
      *
-     * @param idBasketItem
-     * @return
+     * @param idBasketItem;
+     * @return null;
      */
     private Product findProduct(int idBasketItem) {
         for (int i = 0; i < productList.size(); i++) {
@@ -207,7 +205,7 @@ public class Menu {
         System.out.println("Voici la liste des produits dans votre panier : \n");
         try {
             for (int i = 0; i < basket.cart.size(); i++) {
-                System.out.println(basket.cart.get(i).toString()+ "\n");
+                System.out.println(basket.cart.get(i).toString() + "\n");
             }
         } catch (NullPointerException n) {
             System.out.println("Aucun produit dans le panier\n");

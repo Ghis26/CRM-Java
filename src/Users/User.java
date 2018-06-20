@@ -1,5 +1,7 @@
 package Users;
 
+import Basket.Basket;
+
 import java.util.Scanner;
 
 /**
@@ -80,9 +82,9 @@ public class User {
      */
     public void showProfile(User user) {
         System.out.println("Votre profil : \n");
-        System.out.println("Votre nom d'utilisateur : " + user.getLogin()+"\n");
-        System.out.println("Votre mot de passe : " + user.getPassword()+"\n");
-        System.out.println("Statut : " + user.getStatut()+"\n");
+        System.out.println("Votre nom d'utilisateur : " + user.getLogin() + "\n");
+        System.out.println("Votre mot de passe : " + user.getPassword() + "\n");
+        System.out.println("Statut : " + user.getStatut() + "\n");
         System.out.println("Votre porte-monnaie : " + user.getBudget() + " €.\n");
     }
 
@@ -93,10 +95,10 @@ public class User {
         System.out.println("Modifiez votre profil :\n");
         System.out.println("Modifiez votre nom :");
         setLogin(sc.nextLine());
-        System.out.println("Votre nouveau nom : " + getLogin()+"\n");
+        System.out.println("Votre nouveau nom : " + getLogin() + "\n");
         System.out.print("Modifiez votre mot de passe :");
         setPassword(sc.next());
-        System.out.print("Votre nouveau mot de passe : " + getPassword()+"\n");
+        System.out.print("Votre nouveau mot de passe : " + getPassword() + "\n");
     }
 
     /**
