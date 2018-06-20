@@ -1,7 +1,5 @@
 package Basket;
 
-import java.util.Scanner;
-
 /**
  * La classe Basket.Product définit les attributs d'un produit
  *
@@ -11,11 +9,10 @@ import java.util.Scanner;
 
 public class Product {
 
-    private Scanner sc = new Scanner(System.in);
     /**
      * l'id est l'identifiant du produit
      *
-     * @see Product#getId();
+     * @see Product#getId;
      * @see Product#setId(int) ;
      */
     private int id;
@@ -38,7 +35,7 @@ public class Product {
     /**
      * price indique le prix d'un produit.
      *
-     * @see Product#getPrice();
+     * @see Product#getPrice;
      * @see Product#setPrice(float);
      */
     private float price;
@@ -50,9 +47,6 @@ public class Product {
     /**
      * Constructeur qui initie les variables du produit créé.
      *
-     * @see Product#id;
-     * @see Product#stock;
-     * @see Product#price;
      */
     public Product() {
         id = 0;

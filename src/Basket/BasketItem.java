@@ -13,7 +13,7 @@ public class BasketItem {
     /**
      * l'id permet d'identifier un produit ajouté dans le panier sous un numéro unique.
      *
-     * @see BasketItem#getId();
+     * @see BasketItem#getId;
      * @see BasketItem#setId(int);
      */
     private int id;
@@ -21,35 +21,34 @@ public class BasketItem {
     /**
      * La quantity idnetifie la quantité de produits ajoutée dans le panier.
      *
-     * @see BasketItem#getQuantity();
+     * @see BasketItem#getQuantity;
      * @see BasketItem#setQuantity(int);
      */
 
     private int quantity;
 
+    /**
+     * L'itemPrice définit le prix unitaire de l'item x quantité commandée.
+     */
 
+    private float itemPrice;
 
 // --------------------------------------------------------------------------------------------------------------
-
-
 
 
     /**
      * Constructeur qui permet d'initier les variables id et quantity lors de la création d'un nouvel objet.
      *
-     * @see BasketItem#id;
-     * @see BasketItem#quantity;
      */
 
     public BasketItem() {
         id = 0;
         quantity = 0;
+        itemPrice = 0;
     }
 
 
-
 // --------------------------------------------------------------------------------------------------------------
-
 
 
     /**
@@ -71,6 +70,11 @@ public class BasketItem {
         return quantity;
     }
 
+
+    public float getItemPrice() {
+        return itemPrice;
+    }
+
     /**
      * Permet d'affecter l'id du produit à la variable.
      *
@@ -88,5 +92,24 @@ public class BasketItem {
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+// --------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Permet de retourner les données de l'objet contenues dans le tableau sous forme de phrase.
+     * @return String;
+     */
+    public String toString() {
+        return "Id du Produit : " + this.getId() + ", quantité : " + getQuantity()+ " pour un montant de : " +getItemPrice()+ " €";
+    }
+
+    /**
+     * Permet de calculer le montant du BasketItem.
+     * @param productPrice;
+     */
+
+    public void multiply(float productPrice){
+        itemPrice = productPrice * getQuantity();
     }
 }

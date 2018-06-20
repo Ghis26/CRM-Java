@@ -1,6 +1,7 @@
 package Basket;
 
 import java.util.ArrayList;
+
 /**
  * La classe Basket.Basket définit le panier total du client. Il contient plusieurs BasketItems.
  *
@@ -11,41 +12,34 @@ import java.util.ArrayList;
 
 public class Basket {
 
-
     /**
      * Ceci est un tableau contenant l'ensemble des BasketItems du Basket.Basket.
      *
-     * @see Basket#getBasketItems();
-     * @see Basket#addToCart() ;
      */
 
-    private ArrayList<BasketItem> basketItems;
+    public ArrayList<BasketItem> cart;
 
     /**
      * L'enumération allSstatus est la liste de tous les statuts possibles du panier.
      */
-    private enum allStatus {
+    public enum allStatus {
         enCours,
         Paye,
-        Annule;
+        Annule,
     }
 
     /**
      * La variable status indique le statut actuel du panier.
      *
-     * @see Basket#getStatus();
-     * @see Basket#setStatus(String);
      */
-    private String status;
+    public allStatus status;
 
 
     /**
      * La variable productId récupère l'ID du produit.
-     * @see Basket#addToCart();
      */
 
-    private String productId;
-
+    private float totalPrice;
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -53,54 +47,62 @@ public class Basket {
 
     /**
      * Constructeur permettant d'initier un nouveau panier.
-     *
-     * @see Basket#basketItems;
-     * @see Basket#status;
      */
 
     public Basket() {
-        basketItems = new ArrayList<>(10);
-        status = "";
-//        productId = Basket.Product.getId();
-
+        cart = new ArrayList<>(10);
+        status = allStatus.enCours;
+        totalPrice = 0;
     }
 
 
 // --------------------------------------------------------------------------------------------------------------
 
 
-
     /**
      * La méthode getStatus permet de retourner le statut actuel du Basket.Basket.
+     *
      * @return status;
      */
 
-    public String getStatus() {
+    public allStatus getStatus() {
         return status;
     }
 
 
     /**
      * La méthode getBasketItems permet de retourner le contenu actuel du Basket.Basket.
+     *
      * @return basketItems;
      */
     public ArrayList<BasketItem> getBasketItems() {
-        return basketItems;
+        return cart;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
     }
 
     /**
      * La méthode setStatus permet d'affecter le statut actuel du basket à la variable status.
+     *
      * @param status;
      */
-    public void setStatus(String status) {
+    public void setStatus(allStatus status) {
         this.status = status;
     }
 
-//    /**
-//     * La méthode addToCart permet d'ajouter des basketItems à la variable.
-//     */
-//    public BasketItem addToCart(productId) {
-//        basketItems.add(productId);
-//    }
+
+// --------------------------------------------------------------------------------------------------------------
+
+    /**
+     * la méthode sum additionne les prix des produits contenus dans le panier.
+     */
+    public void sum() {
+        totalPrice = 0;
+        for (int i = 0; i < cart.size(); i++) {
+            totalPrice += cart.get(i).getItemPrice();
+        }
+    }
 }
 

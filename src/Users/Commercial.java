@@ -1,7 +1,7 @@
 package Users;
 
 public class Commercial extends User{
-    final String statut;
+    private final String statut;
 
     public Commercial(){
         super();

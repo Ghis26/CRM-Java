@@ -1,5 +1,7 @@
 package com.company;
 
+import Basket.Basket;
+import Basket.BasketItem;
 import Basket.Product;
 import Users.User;
 
@@ -34,13 +36,17 @@ public class Menu {
      */
     private ArrayList<Product> productList = new ArrayList<>(20);
 
+    /**
+     * La variable basket initie le basket a null.
+     */
+    private Basket basket = null;
+
+    private double amount = 0;
 // --------------------------------------------------------------------------------------------------------------
 
     /**
      * Constructeur permettant d'initier les variables du Menu
      *
-     * @see Menu#choice;
-     * @see Menu#exitProject;
      */
 
     public Menu() {
@@ -61,13 +67,15 @@ public class Menu {
             System.out.println(user.getLogin() + ", veuillez choisir parmi les propositions suivantes :");
             System.out.println("1 - Affichez votre profil");
             System.out.println("2 - Modifiez votre profil");
-            if (user.getStatut().equals("commercial")) {
-                System.out.println("3 - Créez un produit");
-            }
+            System.out.println("3 - Créez un produit");
             if (user.getStatut().equals("client")) {
                 System.out.println("4 - Affichez la liste des produits");
+                System.out.println("5 - Ajouter un produit au panier");
+                System.out.println("6 - Voir votre panier");
+                System.out.println("7 - Payez vos achats");
+                System.out.println("8 - Réapprovisionnez votre porte-monnaie");
             }
-            System.out.println("5 - Quittez le programme");
+            System.out.println("9 - Quittez le programme");
 
             System.out.println("Votre choix :");
 
@@ -83,31 +91,51 @@ public class Menu {
                     exitProject = false;
                     break;
                 case 3:
-                    if (user.getStatut().equals("commercial")) {
-                        newProduct();
-                        exitProject = false;
-                        break;
-                    }else{
-                        System.out.println("Vous n'avez pas l'autorisation");
-                        exitProject = false;
-                        break;
-                    }
+                    newProduct();
+                    exitProject = false;
+                    break;
                 case 4:
                     if (user.getStatut().equals("client")) {
                         showProduct();
                         exitProject = false;
                         break;
-                    }else{
+                    } else {
                         System.out.println("Vous n'avez pas l'autorisation");
                         exitProject = false;
                         break;
                     }
+                case 5:
+                    if (user.getStatut().equals("client")) {
+                        showProduct();
+                        addtoCart();
+                        exitProject = false;
+                        break;
+                    } else {
+                        System.out.println("Vous n'avez pas l'autorisation");
+                        exitProject = false;
+                        break;
+                    }
+                case 6:
+                    showCart();
+                    exitProject = false;
+                    break;
+                case 7:
+                    cartPayment(user);
+                    exitProject = true;
+                case 8:
+                    resupplyBudget(user);
+                    exitProject = false;
+                    break;
                 default:
                     user.disconnect();
                     exitProject = true;
             }
         } while (!exitProject);
     }
+
+
+// --------------------------------------------------------------------------------------------------------------
+
 
     /**
      * La méthode newProduct permet d'instancier un nouveau produit
@@ -128,7 +156,7 @@ public class Menu {
     }
 
     /**
-     *La méthode showProduct permet d'afficher l'ensemble des produits créés
+     * La méthode showProduct permet d'afficher l'ensemble des produits créés
      */
     private void showProduct() {
         String newLine = System.getProperty("line.separator");
@@ -136,5 +164,79 @@ public class Menu {
         for (int i = 0; i < productList.size(); i++) {
             System.out.println(productList.get(i).toString() + newLine);
         }
+    }
+
+    /**
+     * La méthode addToCart permet de créer un basketItem (id + quantité produit) + l'ajouter au panier.
+     */
+    private void addtoCart() {
+        if (basket == null) {
+            basket = new Basket();
+        }
+        BasketItem basketItem = new BasketItem();
+        System.out.println("Saisissez l'ID du produit que vous souhaitez ajouter au panier : ");
+        basketItem.setId(sc.nextInt());
+        System.out.println("Saisissez la quantité de produits que vous souhaitez ajouter au panier : ");
+        basketItem.setQuantity(sc.nextInt());
+        Product itemFound = findProduct(basketItem.getId());
+        basketItem.multiply(itemFound.getPrice());
+        basket.cart.add(basketItem);
+        basket.sum();
+        System.out.println("l'ajout au panier a bien été fait ! Le montant total du panier s'élève à : " + basket.getTotalPrice() + " €");
+    }
+
+
+    /**
+     * La méthode findProduct permet de récupérer l'objet Product correspondant à l'ID entré dans le basketItem.
+     *
+     * @param idBasketItem
+     * @return
+     */
+    private Product findProduct(int idBasketItem) {
+        for (int i = 0; i < productList.size(); i++) {
+            if (productList.get(i).getId() == idBasketItem) {
+                return productList.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * La méthode showCart permet d'afficher le panier en cours.
+     */
+    private void showCart() {
+        String newLine = System.getProperty("line.separator");
+        System.out.println("Voici la liste des produits dans votre panier : " + newLine);
+        try {
+            for (int i = 0; i < basket.cart.size(); i++) {
+                System.out.println(basket.cart.get(i).toString() + newLine);
+            }
+        } catch (NullPointerException n) {
+            System.out.println("Aucun produit dans le panier");
+        }
+    }
+
+    /**
+     * La méthode cartPayment permet de régler le panier ainsi que de changer son statut.
+     */
+    private void cartPayment(User user) {
+        if (basket.getTotalPrice() <= user.getBudget()) {
+            System.out.println("Votre panier a bien été reglé ! Merci !");
+            basket.setStatus(Basket.allStatus.Paye);
+        } else {
+            System.out.println("Veuillez réapprovisionner votre compte merci !");
+            basket.setStatus(Basket.allStatus.Annule);
+
+        }
+    }
+
+    /**
+     * La méthode ressuplyBudget permet de réapprovisionner le porte-monnaie du client.
+     */
+    private void resupplyBudget(User user) {
+        System.out.println("Saisissez le montant que vous souhaitez ajouter à votre porte-monnaie : ");
+        amount = sc.nextDouble();
+        user.setBudget(amount + user.getBudget());
+        System.out.println("Votre porte-monnaie est maintenant de " + user.getBudget() + " €.");
     }
 }

@@ -26,30 +26,23 @@ public class User {
      */
     private String password;
 
-    /**
-     * la variable statut permet de définir le statut utilisateur.
-     */
-    private String statut;
-
+    public double budget;
 
 // --------------------------------------------------------------------------------------------------------------
 
     /**
      * Le constructeur permet d'initier les variables.
-     *
-     * @see User#login;
-     * @see User#password;
      */
 
     public User() {
-        login = "";
-        password = "";
-        statut = "";
+        this.login = "";
+        this.password = "";
+        this.budget = 0;
     }
 
     // --------------------------------------------------------------------------------------------------------------
     public String getStatut() {
-        return statut;
+        return "";
     }
 
     public String getLogin() {
@@ -60,9 +53,8 @@ public class User {
         return password;
     }
 
-
-    public void setStatut(String statut) {
-        this.statut = statut;
+    public double getBudget() {
+        return 0;
     }
 
     public void setLogin(String login) {
@@ -73,6 +65,11 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
+
 
     // --------------------------------------------------------------------------------------------------------------
 
@@ -85,6 +82,8 @@ public class User {
         System.out.println("Votre profil : ");
         System.out.println("Votre nom d'utilisateur : " + user.getLogin());
         System.out.println("Votre mot de passe : " + user.getPassword());
+        System.out.println("Statut : " + user.getStatut());
+        System.out.println("Votre porte-monnaie : " + user.getBudget() + " €.");
     }
 
     /**

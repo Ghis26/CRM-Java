@@ -1,7 +1,7 @@
 package Users;
 
 public class Administrateur extends User{
-    final String statut;
+    private final String statut;
 
     public Administrateur(){
         super();

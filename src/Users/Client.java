@@ -1,5 +1,8 @@
 package Users;
 
+
+import java.util.Scanner;
+
 /**
  * La classe Users.Client définit les attributs d'un client
  *
@@ -7,24 +10,27 @@ package Users;
  * @version 1.0
  */
 
-public class Client extends User{
+public class Client extends User {
 
+    Scanner sc = new Scanner(System.in);
     /**
-     *La variable budget définit le montant du portefeuille du client à sa création.
-     * @see Client#getBudget();
+     * La variable budget définit le montant du portefeuille du client à sa création.
+     *
+     * @see Client#getBudget;
      * @see Client#setBudget(double);
      */
     private double budget;
 
     /**
      * La variable basket est un tableau contenant l'ensemble des produits de l'objet Basket.Basket.
-     * @see Client#getBasket();
+     *
+     * @see Client#getBasket;
      * @see Client#setBasket(String[]);
      */
     private String basket[];
 
 
-    final String statut;
+    private final String statut = "client";
 
     // --------------------------------------------------------------------------------------------------------------
 
@@ -32,15 +38,13 @@ public class Client extends User{
     /**
      * Constructeur permettant d'initier le budget initial du client, ainsi qu'un tableau de 10 cases
      * (admettons qu'un panier ne peut contenir plus de 10 articles)
-     * @see Client#budget;
-     * @see Client#basket;
+     *
      */
 
-    public Client(){
+    public Client() {
         super();
-        budget = 10000;
+        budget = 100;
         basket = new String[10];
-        statut = "client";
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -51,6 +55,7 @@ public class Client extends User{
 
     /**
      * Getter permettant de retourner le budget disponible du client.
+     *
      * @return budget;
      */
     public double getBudget() {
@@ -59,6 +64,7 @@ public class Client extends User{
 
     /**
      * Getter permettant de retourner un tableau contenant le panier du client.
+     *
      * @return basket;
      */
 
@@ -67,8 +73,10 @@ public class Client extends User{
     }
 
 
+
     /**
      * Permet d'insérer le panier actuel dans la variable basket;
+     *
      * @param basket;
      */
 
@@ -79,6 +87,7 @@ public class Client extends User{
 
     /**
      * Permet d'actualiser le budget du client.
+     *
      * @param budget;
      */
 
@@ -87,5 +96,3 @@ public class Client extends User{
     }
 
 }
-
-
