@@ -25,14 +25,17 @@ public class Main {
             switch (statut) {
                 case "client":
                     user = new Client();
+                    user.setStatut(statut);
                     statutOk = true;
                     break;
                 case "commercial":
                     user = new Commercial();
+                    user.setStatut(statut);
                     statutOk = true;
                     break;
                 case "administrateur":
                     user = new Administrateur();
+                    user.setStatut(statut);
                     statutOk = true;
                     break;
                 default:

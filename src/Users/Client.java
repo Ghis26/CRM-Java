@@ -24,7 +24,7 @@ public class Client extends User{
     private String basket[];
 
 
-    private String statut;
+    final String statut;
 
     // --------------------------------------------------------------------------------------------------------------
 
@@ -45,9 +45,7 @@ public class Client extends User{
 
     // --------------------------------------------------------------------------------------------------------------
 
-
     public String getStatut() {
-        statut = super.getStatut();
         return statut;
     }
 

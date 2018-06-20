@@ -44,10 +44,13 @@ public class User {
     public User() {
         login = "";
         password = "";
+        statut = "";
     }
 
-// --------------------------------------------------------------------------------------------------------------
-
+    // --------------------------------------------------------------------------------------------------------------
+    public String getStatut() {
+        return statut;
+    }
 
     public String getLogin() {
         return login;
@@ -55,6 +58,11 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+
+    public void setStatut(String statut) {
+        this.statut = statut;
     }
 
     public void setLogin(String login) {
@@ -67,14 +75,6 @@ public class User {
     }
 
     // --------------------------------------------------------------------------------------------------------------
-
-    public String getStatut() {
-        return statut;
-    }
-
-    public void setStatut(String statut) {
-        this.statut = statut;
-    }
 
     /**
      * La méthode showProfile permet d'afficher les données utilisateur.
