@@ -64,18 +64,18 @@ public class Menu {
 
     public void showMenu(User user) {
         do {
-            System.out.println(user.getLogin() + ", veuillez choisir parmi les propositions suivantes :");
-            System.out.println("1 - Affichez votre profil");
-            System.out.println("2 - Modifiez votre profil");
-            System.out.println("3 - Créez un produit");
+            System.out.println(user.getLogin() + ", veuillez choisir parmi les propositions suivantes :\n");
+            System.out.println("1 - Affichez votre profil\n");
+            System.out.println("2 - Modifiez votre profil\n");
+            System.out.println("3 - Créez un produit\n");
             if (user.getStatut().equals("client")) {
-                System.out.println("4 - Affichez la liste des produits");
-                System.out.println("5 - Ajouter un produit au panier");
-                System.out.println("6 - Voir votre panier");
-                System.out.println("7 - Payez vos achats");
-                System.out.println("8 - Réapprovisionnez votre porte-monnaie");
+                System.out.println("4 - Affichez la liste des produits\n");
+                System.out.println("5 - Ajouter un produit au panier\n");
+                System.out.println("6 - Voir votre panier\n");
+                System.out.println("7 - Payez vos achats\n");
+                System.out.println("8 - Réapprovisionnez votre porte-monnaie\n");
             }
-            System.out.println("9 - Quittez le programme");
+            System.out.println("9 - Quittez le programme\n");
 
             System.out.println("Votre choix :");
 
@@ -152,17 +152,16 @@ public class Menu {
         System.out.println("Saisissez le prix de votre produit :");
         product.setPrice(sc.nextFloat());
         productList.add(product);
-        System.out.println("Votre produit a bien été créé !");
+        System.out.println("Votre produit a bien été créé !\n");
     }
 
     /**
      * La méthode showProduct permet d'afficher l'ensemble des produits créés
      */
     private void showProduct() {
-        String newLine = System.getProperty("line.separator");
-        System.out.println("Voici la liste des produits créés à ce jour : " + newLine);
+        System.out.println("Voici la liste des produits créés à ce jour : \n");
         for (int i = 0; i < productList.size(); i++) {
-            System.out.println(productList.get(i).toString() + newLine);
+            System.out.println(productList.get(i).toString()+"\n");
         }
     }
 
@@ -182,7 +181,7 @@ public class Menu {
         basketItem.multiply(itemFound.getPrice());
         basket.cart.add(basketItem);
         basket.sum();
-        System.out.println("l'ajout au panier a bien été fait ! Le montant total du panier s'élève à : " + basket.getTotalPrice() + " €");
+        System.out.println("l'ajout au panier a bien été fait ! Le montant total du panier s'élève à : " + basket.getTotalPrice() + " €\n");
     }
 
 
@@ -205,14 +204,13 @@ public class Menu {
      * La méthode showCart permet d'afficher le panier en cours.
      */
     private void showCart() {
-        String newLine = System.getProperty("line.separator");
-        System.out.println("Voici la liste des produits dans votre panier : " + newLine);
+        System.out.println("Voici la liste des produits dans votre panier : \n");
         try {
             for (int i = 0; i < basket.cart.size(); i++) {
-                System.out.println(basket.cart.get(i).toString() + newLine);
+                System.out.println(basket.cart.get(i).toString()+ "\n");
             }
         } catch (NullPointerException n) {
-            System.out.println("Aucun produit dans le panier");
+            System.out.println("Aucun produit dans le panier\n");
         }
     }
 
@@ -221,10 +219,10 @@ public class Menu {
      */
     private void cartPayment(User user) {
         if (basket.getTotalPrice() <= user.getBudget()) {
-            System.out.println("Votre panier a bien été reglé ! Merci !");
+            System.out.println("Votre panier a bien été reglé ! Merci !\n");
             basket.setStatus(Basket.allStatus.Paye);
         } else {
-            System.out.println("Veuillez réapprovisionner votre compte merci !");
+            System.out.println("Veuillez réapprovisionner votre compte merci !\n");
             basket.setStatus(Basket.allStatus.Annule);
 
         }
@@ -237,6 +235,6 @@ public class Menu {
         System.out.println("Saisissez le montant que vous souhaitez ajouter à votre porte-monnaie : ");
         amount = sc.nextDouble();
         user.setBudget(amount + user.getBudget());
-        System.out.println("Votre porte-monnaie est maintenant de " + user.getBudget() + " €.");
+        System.out.println("Votre porte-monnaie est maintenant de " + user.getBudget() + " €.\n");
     }
 }

@@ -101,7 +101,7 @@ public class BasketItem {
      * @return String;
      */
     public String toString() {
-        return "Id du Produit : " + this.getId() + ", quantité : " + getQuantity()+ " pour un montant de : " +getItemPrice()+ " €";
+        return "Id du Produit : " + this.getId() + ", quantité : " + getQuantity()+ " pour un montant de : " +getItemPrice()+ " €\n";
     }
 
     /**

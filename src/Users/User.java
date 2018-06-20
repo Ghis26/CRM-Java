@@ -79,24 +79,24 @@ public class User {
      * @param user;
      */
     public void showProfile(User user) {
-        System.out.println("Votre profil : ");
-        System.out.println("Votre nom d'utilisateur : " + user.getLogin());
-        System.out.println("Votre mot de passe : " + user.getPassword());
-        System.out.println("Statut : " + user.getStatut());
-        System.out.println("Votre porte-monnaie : " + user.getBudget() + " €.");
+        System.out.println("Votre profil : \n");
+        System.out.println("Votre nom d'utilisateur : " + user.getLogin()+"\n");
+        System.out.println("Votre mot de passe : " + user.getPassword()+"\n");
+        System.out.println("Statut : " + user.getStatut()+"\n");
+        System.out.println("Votre porte-monnaie : " + user.getBudget() + " €.\n");
     }
 
     /**
      * La méthode modifProfile permet à l'utilisateur de modifier son profil.
      */
     public void modifProfile() {
-        System.out.println("Modifiez votre profil :");
+        System.out.println("Modifiez votre profil :\n");
         System.out.println("Modifiez votre nom :");
         setLogin(sc.nextLine());
-        System.out.println("Votre nouveau nom : " + getLogin());
+        System.out.println("Votre nouveau nom : " + getLogin()+"\n");
         System.out.print("Modifiez votre mot de passe :");
         setPassword(sc.next());
-        System.out.print("Votre nouveau mot de passe : " + getPassword());
+        System.out.print("Votre nouveau mot de passe : " + getPassword()+"\n");
     }
 
     /**

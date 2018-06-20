@@ -143,6 +143,6 @@ public class Product {
      * @return les éléments du produit sous forme de String.
      */
     public String toString() {
-        return "Id du Produit : " + this.getId() + ", Nom du produit : " + this.getName() + " : stock : " + this.getStock() + ", prix : " + this.getPrice() + " €";
+        return "Id du Produit : " + this.getId() + ", Nom du produit : " + this.getName() + " : stock : " + this.getStock() + ", prix : " + this.getPrice() + " €\n";
     }
 }
