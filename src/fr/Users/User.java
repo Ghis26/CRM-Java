@@ -1,5 +1,8 @@
 package fr.Users;
 
+import fr.Basket.Product;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -26,7 +29,6 @@ public class User {
      */
     private String password;
 
-    public double budget;
 
 // --------------------------------------------------------------------------------------------------------------
 
@@ -37,7 +39,6 @@ public class User {
     public User() {
         this.login = "";
         this.password = "";
-        this.budget = 0;
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -53,11 +54,7 @@ public class User {
         return password;
     }
 
-    public double getBudget() {
-        return 0;
-    }
-
-    public void setLogin(String login) {
+   public void setLogin(String login) {
 
         this.login = login;
     }
@@ -66,24 +63,17 @@ public class User {
         this.password = password;
     }
 
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
 
 
     // --------------------------------------------------------------------------------------------------------------
 
     /**
      * La méthode showProfile permet d'afficher les données utilisateur.
-     *
-     * @param user;
      */
-    public void showProfile(User user) {
+    public void showProfile() {
         System.out.println("Votre profil : \n");
-        System.out.println("Votre nom d'utilisateur : " + user.getLogin() + "\n");
-        System.out.println("Votre mot de passe : " + user.getPassword() + "\n");
-        System.out.println("Statut : " + user.getStatut() + "\n");
-        System.out.println("Votre porte-monnaie : " + user.getBudget() + " €.\n");
+        System.out.println("Votre nom d'utilisateur : " + getLogin() + "\n");
+        System.out.println("Votre mot de passe : " + getPassword() + "\n");
     }
 
     /**
@@ -105,4 +95,13 @@ public class User {
     public void disconnect() {
         System.out.println("A bientôt !");
     }
+
+
+    public void showMenu() {
+
+        System.out.println(getLogin() + ", veuillez choisir parmi les propositions suivantes :\n");
+        System.out.println("1 - Affichez votre profil");
+        System.out.println("2 - Modifiez votre profil");
+    }
+
 }

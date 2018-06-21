@@ -1,6 +1,7 @@
 package fr.Basket;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * La classe fr.Basket.fr.Basket définit le panier total du client. Il contient plusieurs BasketItems.
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 
 
 public class Basket {
+
+    Scanner sc = new Scanner(System.in);
 
     /**
      * Ceci est un tableau contenant l'ensemble des BasketItems du fr.Basket.fr.Basket.
@@ -32,7 +35,7 @@ public class Basket {
      * La variable status indique le statut actuel du panier.
      *
      */
-    public allStatus status;
+    private allStatus status;
 
 
     /**
@@ -101,5 +104,34 @@ public class Basket {
             totalPrice += cart.get(i).getItemPrice();
         }
     }
+
+    /**
+     * La méthode findProduct permet de récupérer l'objet Product correspondant à l'ID entré dans le basketItem.
+     *
+     * @param idBasketItem;
+     * @return null;
+     */
+    private Product findProduct(int idBasketItem) {
+
+        for (int i = 0; i < Productlist.getInstance().getProductCatalog().size(); i++) {
+            if (Productlist.getInstance().getProductCatalog().get(i).getId() == idBasketItem) {
+                return Productlist.getInstance().getProductCatalog().get(i);
+            }
+        }
+        return null;
+    }
+
+
+    public BasketItem createBasketItem(){
+        BasketItem basketItem = new BasketItem();
+        System.out.println("Saisissez l'ID du produit que vous souhaitez ajouter au panier : ");
+        basketItem.setId(sc.nextInt());
+        System.out.println("Saisissez la quantité de produits que vous souhaitez ajouter au panier : ");
+        basketItem.setQuantity(sc.nextInt());
+        Product itemFound = findProduct(basketItem.getId());
+        basketItem.multiply(itemFound.getPrice());
+        return basketItem;
+    }
+
 }
 

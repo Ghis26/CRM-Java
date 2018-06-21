@@ -56,6 +56,13 @@ public class Product {
 
     }
 
+    public Product(int pId, String pName, int pStock, int pPrice){
+        id = pId;
+        name = pName;
+        stock = pStock;
+        price = pPrice;
+    }
+
 
 // --------------------------------------------------------------------------------------------------------------
 

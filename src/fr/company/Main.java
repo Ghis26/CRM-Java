@@ -1,9 +1,5 @@
 package fr.company;
 
-import fr.Basket.Basket;
-import fr.Users.Administrateur;
-import fr.Users.Client;
-import fr.Users.Commercial;
 import fr.Users.User;
 
 import java.util.Scanner;
@@ -14,42 +10,36 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in); // Permet de récupérer les éléments inscrits par l'utilisateur
-        User user = new User(); // Instancie un nouvel utilisateur
-        Menu menu = new Menu(); // Instancie le menu
-        String statut = " ";
-        boolean statutOk;
+        User user = null;
+        boolean status = false;
 
-        do {
-            System.out.println("Êtes-vous client, commercial ou administrateur ?");
-                statut = sc.nextLine();
-            switch (statut) {
-                case "client":
-                    user = new Client();
-                    Basket basket = new Basket();
-                    statutOk = true;
-                    break;
-                case "commercial":
-                    user = new Commercial();
-                    statutOk = true;
-                    break;
-                case "administrateur":
-                    user = new Administrateur();
-                    statutOk = true;
-                    break;
-                default:
-                    System.out.println("Vous n'avez pas le bon statut");
-                    statutOk = false;
+
+        do{
+            System.out.println("Êtes-vous Client, Commercial ou Administrateur ?");
+            String userType = sc.next();
+            try {
+                user =(User)Class.forName("fr.Users."+userType).newInstance();
+                status = true;
+            } catch (ClassNotFoundException e) {
+                System.out.println(e+ ". La classe n'existe pas");
+            } catch (InstantiationException i) {
+                System.out.println(i+ ". Veuillez réessayer");
+            } catch (IllegalAccessException l) {
+                System.out.println(l+ ". La classe n'est pas accessible");
+            }catch (NoClassDefFoundError n) {
+                System.out.println(n+ "Veuillez réessayer");
             }
-        } while (!statutOk);
+        } while(!status);
+
 
         System.out.println("Veuillez saisir votre nom :");
 
-        user.setLogin(sc.nextLine());
+        user.setLogin(sc.next());
 
         System.out.println("Veuillez saisir votre mot de passe :");
 
-        user.setPassword(sc.nextLine());
+        user.setPassword(sc.next());
 
-        menu.showMenu(user);
+        user.showMenu();
     }
 }
