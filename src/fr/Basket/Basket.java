@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Basket {
 
-    Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
     /**
      * Ceci est un tableau contenant l'ensemble des BasketItems du fr.Basket.fr.Basket.
@@ -61,19 +61,7 @@ public class Basket {
 
 // --------------------------------------------------------------------------------------------------------------
 
-
-    /**
-     * La méthode getStatus permet de retourner le statut actuel du fr.Basket.fr.Basket.
-     *
-     * @return status;
-     */
-
-    public allStatus getStatus() {
-        return status;
-    }
-
-
-    /**
+     /**
      * La méthode getBasketItems permet de retourner le contenu actuel du fr.Basket.fr.Basket.
      *
      * @return basketItems;

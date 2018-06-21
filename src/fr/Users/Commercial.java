@@ -50,7 +50,7 @@ public class Commercial extends User {
 
         do {
             super.showMenu();
-            System.out.println("3 - Créée un nouveau produit");
+            System.out.println("3 - Crééz un nouveau produit");
             System.out.println("4 - Modifiez les stocks des produits");
             System.out.println("5 - Quittez le programme");
             System.out.println("Votre choix :");
@@ -78,6 +78,9 @@ public class Commercial extends User {
                     exitProject = true;
             }
         } while (!exitProject);
+    }
+    public void initChoices(){
+
     }
 }
 

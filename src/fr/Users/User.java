@@ -1,8 +1,8 @@
 package fr.Users;
 
-import fr.Basket.Product;
-
-import java.util.ArrayList;
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 
-public class User {
+public abstract class User implements InterfaceUser{
 
     /**
      * La variable sc permet de capter les entrées utilisateur.
@@ -29,6 +29,8 @@ public class User {
      */
     private String password;
 
+    private Map<Integer, Choice> choices;
+
 
 // --------------------------------------------------------------------------------------------------------------
 
@@ -39,6 +41,8 @@ public class User {
     public User() {
         this.login = "";
         this.password = "";
+        choices = new HashMap<Integer, Choice>();
+        this.initChoices();
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -104,4 +108,5 @@ public class User {
         System.out.println("2 - Modifiez votre profil");
     }
 
+     public abstract void initChoices();
 }
