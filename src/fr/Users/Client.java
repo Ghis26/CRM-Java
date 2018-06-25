@@ -2,6 +2,7 @@ package fr.Users;
 
 import fr.Basket.Basket;
 import fr.Basket.BasketItem;
+import fr.Basket.Product;
 import fr.Basket.Productlist;
 
 import java.util.Scanner;
@@ -29,12 +30,38 @@ public class Client extends User {
      */
     private Basket basket;
 
+    /**
+     * L'enum liste l'ensemble des choix possibles
+     */
+    private enum AllChoices {
+        SHOW_PROFILE("Affichez votre profil"),
+        MODIF_PROFILE("Modifiez votre profil"),
+        SHOW_PRODUCTLIST("Voir la liste des produits"),
+        ADD_PRODUCT_TO_CART("Ajoutez un produit au panier"),
+        SHOW_CART("Voir votre panier"),
+        PAYMENT("Payez votre panier"),
+        RESUPPLY("Réapprovisionnez votre porte-monnaie"),
+        LEAVE("Quittez le programme");
+
+        private String textChoice;
+
+        AllChoices(String textChoice) {
+            this.textChoice = textChoice;
+        }
+
+        public static AllChoices find(int value) {
+            return values()[value];
+        }
+
+    }
+
     // --------------------------------------------------------------------------------------------------------------
 
     /**
      * Constructeur permettant d'initier le budget initial du client, ainsi qu'un tableau de 10 cases
      * (admettons qu'un panier ne peut contenir plus de 10 articles)
      */
+
 
     public Client() {
         super();
@@ -65,57 +92,50 @@ public class Client extends User {
 
 
     public void showMenu() {
-        boolean exitProject = false;
-        int choice;
+        boolean stat = true;
+        AllChoices userChoice;
 
-        do {
-            super.showMenu();
-            System.out.println("3 - Affichez la liste des produits");
-            System.out.println("4 - Ajouter un produit au panier");
-            System.out.println("5 - Voir votre panier");
-            System.out.println("6 - Payez vos achats");
-            System.out.println("7 - Réapprovisionnez votre porte-monnaie");
-            System.out.println("8 - Quittez le programme\n");
+       while (stat) {
+            showChoices();
 
             System.out.println("Votre choix :");
 
-            choice = sc.nextInt();
-
-            switch (choice) {
-                case 1:
+            userChoice = AllChoices.find(sc.nextInt());
+            switch (userChoice) {
+                case SHOW_PROFILE:
                     showProfile();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 2:
+                case MODIF_PROFILE:
                     modifProfile();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 3:
+                case SHOW_PRODUCTLIST:
                     showProduct();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 4:
-                    showProduct();
+                case ADD_PRODUCT_TO_CART:
                     addtoCart();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 5:
+                case SHOW_CART:
                     showCart();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 6:
+                case PAYMENT:
                     cartPayment();
-                    exitProject = true;
+                    stat = true;
                     break;
-                case 7:
+                case RESUPPLY:
                     resupplyBudget();
-                    exitProject = false;
+                    stat = true;
                     break;
-                default:
+                case LEAVE:
                     disconnect();
-                    exitProject = true;
+                    stat = false;
+                    break;
             }
-        } while (!exitProject);
+        }
     }
 
 
@@ -125,10 +145,10 @@ public class Client extends User {
     }
 
 
-    private void showProduct() {
+    public void showProduct() {
         System.out.println("Voici la liste des produits créés à ce jour : \n");
-        for (int i = 0; i < Productlist.getInstance().getProductCatalog().size(); i++) {
-            System.out.println(Productlist.getInstance().getProductCatalog().get(i).toString() + "\n");
+        for (Product product : Productlist.getInstance().getProductCatalog()) {
+            System.out.println(product + "\n");
         }
     }
 
@@ -136,7 +156,8 @@ public class Client extends User {
      * La méthode addToCart permet de créer un basketItem (id + quantité produit) + l'ajouter au panier.
      */
     private void addtoCart() {
-         BasketItem basketItem = basket.createBasketItem();
+        showProduct();
+        BasketItem basketItem = basket.createBasketItem();
         basket.cart.add(basketItem);
         basket.sum();
         System.out.println("l'ajout au panier a bien été fait ! Le montant total du panier s'élève à : " + basket.getTotalPrice() + " €\n");
@@ -179,4 +200,17 @@ public class Client extends User {
         setBudget(amount + getBudget());
         System.out.println("Votre porte-monnaie est maintenant de " + getBudget() + " €.\n");
     }
+
+
+    /**
+     * La méthode showChoices permet d'afficher les différents choix identifiés dans l'enum.
+     */
+    public void showChoices() {
+        for (AllChoices menuChoice : AllChoices.values()) {
+            System.out.println(menuChoice.ordinal() + " - " + menuChoice.textChoice);
+        }
+    }
+
+
 }
+

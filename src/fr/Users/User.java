@@ -1,8 +1,5 @@
 package fr.Users;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -12,7 +9,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 
-public abstract class User implements InterfaceUser{
+public abstract class User implements InterfaceUser, Choice {
 
     /**
      * La variable sc permet de capter les entrées utilisateur.
@@ -29,8 +26,6 @@ public abstract class User implements InterfaceUser{
      */
     private String password;
 
-    private Map<Integer, Choice> choices;
-
 
 // --------------------------------------------------------------------------------------------------------------
 
@@ -41,8 +36,6 @@ public abstract class User implements InterfaceUser{
     public User() {
         this.login = "";
         this.password = "";
-        choices = new HashMap<Integer, Choice>();
-        this.initChoices();
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -58,7 +51,7 @@ public abstract class User implements InterfaceUser{
         return password;
     }
 
-   public void setLogin(String login) {
+    public void setLogin(String login) {
 
         this.login = login;
     }
@@ -66,7 +59,6 @@ public abstract class User implements InterfaceUser{
     public void setPassword(String password) {
         this.password = password;
     }
-
 
 
     // --------------------------------------------------------------------------------------------------------------
@@ -101,12 +93,9 @@ public abstract class User implements InterfaceUser{
     }
 
 
-    public void showMenu() {
+    public abstract void showMenu();
 
-        System.out.println(getLogin() + ", veuillez choisir parmi les propositions suivantes :\n");
-        System.out.println("1 - Affichez votre profil");
-        System.out.println("2 - Modifiez votre profil");
-    }
+    public abstract void showChoices();
 
-     public abstract void initChoices();
+    public abstract void showProduct();
 }

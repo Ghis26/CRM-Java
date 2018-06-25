@@ -11,6 +11,24 @@ public class Commercial extends User {
 
     private Scanner sc = new Scanner(System.in);
 
+    private enum AllChoices {
+        SHOW_PROFILE("Affichez votre profil"),
+        MODIF_PROFILE("Modifiez votre profil"),
+        ADD_PRODUCT("Ajouter un produit à la liste"),
+        SHOW_PRODUCTLIST("Voir la liste des produits"),
+        LEAVE("Quittez le programme");
+
+        private String textChoice;
+
+        AllChoices(String textChoice) {
+            this.textChoice = textChoice;
+        }
+
+        public static Commercial.AllChoices find(int value) {
+            return values()[value];
+        }
+    }
+
 
     public Commercial() {
         super();
@@ -45,42 +63,51 @@ public class Commercial extends User {
     }
 
     public void showMenu() {
-        boolean exitProject = false;
-        int choice;
+        boolean stat = true;
+        AllChoices userChoice;
 
-        do {
-            super.showMenu();
-            System.out.println("3 - Crééz un nouveau produit");
-            System.out.println("4 - Modifiez les stocks des produits");
-            System.out.println("5 - Quittez le programme");
+        while (stat) {
+            showChoices();
+
             System.out.println("Votre choix :");
 
-            choice = sc.nextInt();
-
-            switch (choice) {
-                case 1:
+            userChoice = AllChoices.find(sc.nextInt());
+            switch (userChoice) {
+                case SHOW_PROFILE:
                     showProfile();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 2:
+                case MODIF_PROFILE:
                     modifProfile();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 3:
+                case ADD_PRODUCT:
                     newProduct();
-                    exitProject = false;
+                    stat = true;
                     break;
-                case 4:
-                    exitProject = false;
+                case SHOW_PRODUCTLIST:
+                    showProduct();
+                    stat = true;
                     break;
-                default:
+                case LEAVE:
                     disconnect();
-                    exitProject = true;
+                    stat = false;
+                    break;
             }
-        } while (!exitProject);
+        }
     }
-    public void initChoices(){
 
+    public void showChoices() {
+        for (Commercial.AllChoices menuChoice : Commercial.AllChoices.values()) {
+            System.out.println(menuChoice.ordinal() + " - " + menuChoice.textChoice);
+        }
+    }
+
+    public void showProduct() {
+        System.out.println("Voici la liste des produits créés à ce jour : \n");
+        for (Product product : Productlist.getInstance().getProductCatalog()) {
+            System.out.println(product + "\n");
+        }
     }
 }
 

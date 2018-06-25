@@ -49,11 +49,7 @@ public class Product {
      *
      */
     public Product() {
-        id = 0;
-        name = "";
-        stock = 0;
-        price = 0;
-
+        this(0, "", 0, 0);
     }
 
     public Product(int pId, String pName, int pStock, int pPrice){
