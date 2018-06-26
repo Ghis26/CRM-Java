@@ -1,4 +1,4 @@
-package fr.Users;
+package fr.Utilities;
 
 public interface Choice {
 

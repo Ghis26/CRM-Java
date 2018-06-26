@@ -1,5 +1,8 @@
 package fr.Users;
 
+import fr.Utilities.Choice;
+import fr.Utilities.InterfaceUser;
+
 import java.util.Scanner;
 
 /**

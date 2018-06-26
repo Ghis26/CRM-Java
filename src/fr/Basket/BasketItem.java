@@ -70,7 +70,7 @@ public class BasketItem {
     }
 
 
-    public float getItemPrice() {
+    float getItemPrice() {
         return itemPrice;
     }
 
@@ -110,7 +110,7 @@ public class BasketItem {
      * @param productPrice;
      */
 
-    public void multiply(float productPrice) {
+    void multiply(float productPrice) {
         itemPrice = productPrice * getQuantity();
     }
 }

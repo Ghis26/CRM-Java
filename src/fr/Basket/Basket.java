@@ -88,8 +88,8 @@ public class Basket {
      */
     public void sum() {
         totalPrice = 0;
-        for (int i = 0; i < cart.size(); i++) {
-            totalPrice += cart.get(i).getItemPrice();
+        for (BasketItem item : cart) {
+            totalPrice += item.getItemPrice();
         }
     }
 
@@ -108,7 +108,6 @@ public class Basket {
         }
         return null;
     }
-
 
     public BasketItem createBasketItem(){
         BasketItem basketItem = new BasketItem();
