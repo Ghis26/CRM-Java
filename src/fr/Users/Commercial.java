@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class Commercial extends User {
-    private final String statut;
+    private final String status;
     private Scanner sc;
 
     private enum AllChoices {
@@ -35,12 +35,12 @@ public class Commercial extends User {
 
     public Commercial() {
         super();
-        statut = "commercial";
+        status = "commercial";
         sc = new Scanner(System.in);
     }
 
     public String getStatut() {
-        return statut;
+        return status;
     }
 
     public void showMenu() {

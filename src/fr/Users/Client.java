@@ -16,6 +16,8 @@ import java.util.Scanner;
 
 public class Client extends User {
 
+    private final String status;
+
     private Scanner sc = new Scanner(System.in);
     /**
      * La variable budget définit le montant du portefeuille du client à sa création.
@@ -67,6 +69,7 @@ public class Client extends User {
         super();
         budget = 100;
         basket = new Basket();
+        status = "client";
     }
 
     // --------------------------------------------------------------------------------------------------------------

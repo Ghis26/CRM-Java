@@ -1,14 +1,42 @@
 package fr.company;
 
+import fr.DataBase.DataBase;
 import fr.Users.User;
+import fr.Users.Userlist;
 
+import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
 
 
     public static void main(String[] args) {
+        testDriver();
+        DataBase database = new DataBase();
+        Connection conn = database.connectToDataBase();
+//        try {
+//            Statement state = conn.createStatement();
+//            ResultSet result = state.executeQuery("SELECT * FROM products");
+//            ResultSetMetaData resultMeta = result.getMetaData();
+//
+//            System.out.println("Il y a " + resultMeta.getColumnCount() + "colonnes dans cette table");
+//
+//            for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
+//                while (result.next()) {
+//                    System.out.println(result.getString("name")+ " - " + result.getString("price")+ "€");
+//                }
+//            }
+//            result.close();
+//            state.close();
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            e.printStackTrace();
+//        }
+
+
         User user = defineUser();
+        Userlist.getInstance().getUserCatalog().add(user);
         user.showMenu();
     }
 
@@ -48,4 +76,12 @@ public class Main {
         user.setPassword(sc.next());
     }
 
+    private static void testDriver() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver OK");
+        } catch (ClassNotFoundException c) {
+            System.out.println(c);
+        }
+    }
 }

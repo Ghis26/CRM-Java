@@ -29,7 +29,7 @@ public abstract class User implements InterfaceUser, Choice {
      */
     private String password;
 
-
+    private String status;
 // --------------------------------------------------------------------------------------------------------------
 
     /**
@@ -39,6 +39,12 @@ public abstract class User implements InterfaceUser, Choice {
     public User() {
         this.login = "";
         this.password = "";
+        }
+
+    public User(String uLogin, String uPassword, String uStatus){
+        login = uLogin;
+        password = uPassword;
+        status = uStatus;
     }
 
     // --------------------------------------------------------------------------------------------------------------

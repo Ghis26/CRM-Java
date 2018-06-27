@@ -2,12 +2,14 @@ package fr.Users;
 
 import fr.Basket.Product;
 import fr.Basket.Productlist;
+import fr.DataBase.DataBase;
 
+import java.sql.Connection;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Administrateur extends User {
-    private final String statut;
+    private final String status;
     private Scanner sc = new Scanner(System.in);
 
 
@@ -16,6 +18,7 @@ public class Administrateur extends User {
         MODIF_PROFILE("Modifiez votre profil"),
         ADD_PRODUCT("Ajouter un produit à la liste"),
         SHOW_PRODUCTLIST("Voir la liste des produits"),
+        SHOW_USERLIST("Voir la liste des utilisateurs"),
         LEAVE("Quittez le programme");
 
         private String textChoice;
@@ -31,11 +34,11 @@ public class Administrateur extends User {
 
     public Administrateur() {
         super();
-        statut = "administrateur";
+        status = "administrateur";
     }
 
     public String getStatut() {
-        return statut;
+        return status;
     }
 
     public void showChoices() {
@@ -71,6 +74,10 @@ public class Administrateur extends User {
                     newProduct();
                     stat = true;
                     break;
+                case SHOW_USERLIST:
+                    showUsers();
+                    stat = true;
+                    break;
                 case LEAVE:
                     disconnect();
                     stat = false;
@@ -104,5 +111,16 @@ public class Administrateur extends User {
         for (Product product : Productlist.getInstance().getProductCatalog()) {
             System.out.println(product + "\n");
         }
+    }
+
+    private void showUsers(){
+        System.out.println("Voici la liste des utilisateurs à jour : \n");
+        for (User user : Userlist.getInstance().getUserCatalog()) {
+            System.out.println(user.toString() +"\n");
+        }
+    }
+
+    public String toString(){
+        return "Nom : " +getLogin()+" - Password : " +getPassword()+ " - Statut : " +getStatut();
     }
 }
