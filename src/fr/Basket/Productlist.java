@@ -1,19 +1,22 @@
 package fr.Basket;
 
+import fr.Stock.Stock;
+
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Productlist {
 
 
     private static fr.Basket.Productlist productList;
     private ArrayList<Product> productCatalog;
+    private Stock stockProducts;
 
     /**
      * Constructeur privé permettant d'initier en private l'objet Productlist
      */
     private Productlist() {
         productCatalog = new ArrayList<>(20);
+        stockProducts = new Stock();
         addGenericProducts();
     }
 
@@ -34,12 +37,15 @@ public class Productlist {
     }
 
     /**
-     * Méthode permettant d'ajouter au départ 3 produits génériques.
+     * Méthode permettant d'ajouter au départ 3 produits génériques et ajouter au stock
      */
     private void addGenericProducts() {
-        productCatalog.add(new Product(1, "produit1", 10, 2));
-        productCatalog.add(new Product(2, "produit2", 20, 5));
-        productCatalog.add(new Product(3, "produit3", 40, 10));
+        productCatalog.add(new Product(1, "produit1", 2));
+        productCatalog.add(new Product(2, "produit2", 5));
+        productCatalog.add(new Product(3, "produit3", 10));
+        for (Product product : productCatalog) {
+            stockProducts.addToStock(product.getName(), 10);
+        }
     }
 
     /**
@@ -47,9 +53,21 @@ public class Productlist {
      *
      * @param product;
      */
-    public void addProduct(Product product) {
+    public void addProduct(Product product, int quantity) {
         productCatalog.add(product);
+        stockProducts.addToStock(product.getName(), quantity);
     }
+
+    public void displayStock() {
+        for (String productName : stockProducts.stockList.keySet()) {
+            System.out.println("Nous avons actuellement " + stockProducts.stockList.get(productName) +" " +productName+ " en stock.\n");
+        }
+    }
+
+    public Stock getStockProducts() {
+        return stockProducts;
+    }
+
 }
 
 

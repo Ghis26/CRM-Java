@@ -45,7 +45,7 @@ public class Administrateur extends User {
     }
 
     public void showMenu() {
-        boolean stat = false;
+        boolean stat = true;
         AllChoices userChoice;
 
         while (stat) {
@@ -91,11 +91,11 @@ public class Administrateur extends User {
         }
         System.out.println("Saisissez le nom de votre produit :");
         product.setName(sc.next());
-        System.out.println("Saisissez le nombre de produits en stock :");
-        product.setStock(sc.nextInt());
         System.out.println("Saisissez le prix de votre produit :");
         product.setPrice(sc.nextFloat());
-        Productlist.getInstance().addProduct(product);
+        System.out.println("Saisissez la quantité initiale de produits en stock :");
+        int quantity = sc.nextInt();
+        Productlist.getInstance().addProduct(product, quantity);
         System.out.println("Votre produit a bien été créé !\n");
     }
 

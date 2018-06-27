@@ -23,14 +23,6 @@ public class Product {
      */
     private String name;
 
-    /**
-     * quantity indique la quantité de produits en stock.
-     *
-     * @see Product#getStock();
-     * @see Product#setStock(int) ;
-     */
-
-    private int stock;
 
     /**
      * price indique le prix d'un produit.
@@ -49,13 +41,12 @@ public class Product {
      *
      */
     public Product() {
-        this(0, "", 0, 0);
+        this(0, "", 0);
     }
 
-    public Product(int pId, String pName, int pStock, int pPrice){
+    public Product(int pId, String pName, int pPrice){
         id = pId;
         name = pName;
-        stock = pStock;
         price = pPrice;
     }
 
@@ -83,22 +74,12 @@ public class Product {
         return name;
     }
 
-
-    /**
-     * Getter qui retourne la quantité de produits.
-     *
-     * @return le nombre de produits en stock;
-     */
-    public int getStock() {
-        return stock;
-    }
-
     /**
      * Getter qui retourne le prix initial d'un produit.
      *
      * @return price;
      */
-    public float getPrice() {
+     float getPrice() {
         return price;
     }
 
@@ -121,15 +102,6 @@ public class Product {
     }
 
     /**
-     * Permet d'affecter la quantité actuelle de produits en stock à la variable quantity.
-     *
-     * @param stock;
-     */
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    /**
      * Permet d'affecter le prix à la variable price.
      *
      * @param price;
@@ -146,6 +118,6 @@ public class Product {
      * @return les éléments du produit sous forme de String.
      */
     public String toString() {
-        return "Id du Produit : " + this.getId() + ", Nom du produit : " + this.getName() + ", stock : " + this.getStock() + ", prix : " + this.getPrice() + " €\n";
+        return "Id du Produit : " + this.getId() + ", Nom du produit : " + this.getName() + ", prix : " + this.getPrice() + " €\n";
     }
 }

@@ -100,10 +100,9 @@ public class Basket {
      * @return null;
      */
     private Product findProduct(int idBasketItem) {
-
-        for (int i = 0; i < Productlist.getInstance().getProductCatalog().size(); i++) {
-            if (Productlist.getInstance().getProductCatalog().get(i).getId() == idBasketItem) {
-                return Productlist.getInstance().getProductCatalog().get(i);
+        for (Product product : Productlist.getInstance().getProductCatalog()) {
+            if (product.getId() == idBasketItem) {
+                return product;
             }
         }
         return null;

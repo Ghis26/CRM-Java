@@ -138,7 +138,6 @@ public class Client extends User {
         }
     }
 
-
     public void showProfile() {
         super.showProfile();
         System.out.println("Votre porte-monnaie : " + getBudget() + " €.\n");
@@ -210,7 +209,5 @@ public class Client extends User {
             System.out.println(menuChoice.ordinal() + " - " + menuChoice.textChoice);
         }
     }
-
-
 }
 
