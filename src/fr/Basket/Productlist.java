@@ -15,7 +15,7 @@ public class Productlist {
      * Constructeur privé permettant d'initier en private l'objet Productlist
      */
     private Productlist() {
-        productCatalog = new ArrayList<>(20);
+        productCatalog = new ArrayList<>();
         stockProducts = new Stock();
         addGenericProducts();
     }

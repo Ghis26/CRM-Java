@@ -12,7 +12,7 @@ public class DataBase {
 
 
     public DataBase() {
-        url = "jdbc:mysql://localhost:3306/javadb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        url = "jdbc:mysql://localhost:3306/javadb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
         utilisateur = "ghis";
         password = "Ghislain611";
         connexion = null;

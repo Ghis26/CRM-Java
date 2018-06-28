@@ -4,40 +4,33 @@ import fr.DataBase.DataBase;
 import fr.Users.User;
 import fr.Users.Userlist;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class Main {
 
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         testDriver();
         DataBase database = new DataBase();
-        Connection conn = database.connectToDataBase();
-//        try {
-//            Statement state = conn.createStatement();
-//            ResultSet result = state.executeQuery("SELECT * FROM products");
-//            ResultSetMetaData resultMeta = result.getMetaData();
-//
-//            System.out.println("Il y a " + resultMeta.getColumnCount() + "colonnes dans cette table");
-//
-//            for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
-//                while (result.next()) {
-//                    System.out.println(result.getString("name")+ " - " + result.getString("price")+ "€");
-//                }
-//            }
-//            result.close();
-//            state.close();
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            e.printStackTrace();
-//        }
-
-
-        User user = defineUser();
-        Userlist.getInstance().getUserCatalog().add(user);
-        user.showMenu();
+        database.connectToDataBase();
+        System.out.println("Avez-vous déjà un compte ? (O/N)");
+        char choice = sc.next().charAt(0);
+        User user;
+        switch (choice) {
+            case 'O':
+                user = defineUser();
+                Userlist.getInstance().getUserCatalog().add(user);
+                user.showMenu();
+                break;
+            case 'N':
+                Signup();
+                user = defineUser();
+                Userlist.getInstance().getUserCatalog().add(user);
+                user.showMenu();
+        }
     }
 
     private static User defineUser() {
@@ -76,7 +69,10 @@ public class Main {
         user.setPassword(sc.next());
     }
 
-    private static void testDriver() {
+    /**
+     * Méthode permettant de tester le Driver piur accès à la DB.
+     */
+    public static void testDriver() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver OK");
@@ -84,4 +80,28 @@ public class Main {
             System.out.println(c);
         }
     }
+
+    /**
+     * Méthode permettant de définir ce que souhaite faire l'utilisateur. Se connecter ou créer un compte
+     */
+    private static void Signup() {
+        DataBase database = new DataBase();
+        Connection conn = database.connectToDataBase();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Création de votre compte ");
+        System.out.println("Veuillez saisir votre login : ");
+        String newLogin = sc.next();
+        System.out.println("Veuillez saisir votre password : ");
+        String newPassword = sc.next();
+        try {
+            Statement state = conn.createStatement();
+            state.executeUpdate("INSERT INTO users(login, password, statut )VALUES ('" + newLogin + "','" + newPassword + "', 'Client')");
+            System.out.println("Votre compte a bien été créé !");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }
+
+
+//Window window = new Window(); Si besoin d'afficher l'interface graphique basique

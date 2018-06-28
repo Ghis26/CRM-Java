@@ -2,8 +2,14 @@ package fr.Users;
 
 import fr.Basket.Product;
 import fr.Basket.Productlist;
+import fr.DataBase.DataBase;
 import fr.Stock.Stock;
+import fr.company.Main;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -91,13 +97,6 @@ public class Commercial extends User {
         }
     }
 
-    public void showProduct() {
-        System.out.println("Voici la liste des produits créés à ce jour : \n");
-        for (Product product : Productlist.getInstance().getProductCatalog()) {
-            System.out.println(product + "\n");
-        }
-    }
-
     /**
      * La méthode permet de réapprovisionner le stock
      */
@@ -126,29 +125,4 @@ public class Commercial extends User {
         }
         return null;
     }
-
-    /**
-     * La méthode newProduct permet d'instancier un nouveau produit
-     */
-    private void newProduct() {
-        Product product = new Product();
-        System.out.println("Création de votre produit :");
-        System.out.println("Saisissez l'ID de votre produit :");
-        try {
-            product.setId(sc.nextInt());
-        } catch (InputMismatchException i) {
-            System.out.print(i + "\n");
-            product.setId(1);
-        }
-        System.out.println("Saisissez le nom de votre produit :");
-        product.setName(sc.next());
-        System.out.println("Saisissez la quantité initiale de produits en stock :");
-        int quantity = sc.nextInt();
-        System.out.println("Saisissez le prix de votre produit :");
-        product.setPrice(sc.nextFloat());
-        Productlist.getInstance().addProduct(product, quantity);
-        System.out.println("Votre produit a bien été créé !\n");
-    }
-
-
 }
