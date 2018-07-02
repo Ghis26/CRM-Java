@@ -28,9 +28,9 @@ public class Product {
      * price indique le prix d'un produit.
      *
      * @see Product#getPrice;
-     * @see Product#setPrice(float);
+     * @see Product#setPrice(double);
      */
-    private float price;
+    private double price;
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ public class Product {
      *
      * @return price;
      */
-     float getPrice() {
+     double getPrice() {
         return price;
     }
 
@@ -106,7 +106,7 @@ public class Product {
      *
      * @param price;
      */
-    public void setPrice(float price) {
+    private void setPrice(double price) {
         this.price = price;
     }
 

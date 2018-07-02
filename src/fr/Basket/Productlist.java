@@ -52,6 +52,7 @@ public class Productlist {
      * Méthode permettant d'ajouter un produit à la productList.
      *
      * @param product;
+     * @param quantity;
      */
     public void addProduct(Product product, int quantity) {
         productCatalog.add(product);

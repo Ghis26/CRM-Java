@@ -1,16 +1,8 @@
 package fr.Users;
 
-import fr.Basket.Product;
-import fr.Basket.Productlist;
-import fr.DataBase.DataBase;
 import fr.Utilities.Choice;
 import fr.Utilities.InterfaceUser;
-import fr.company.Main;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 import java.util.Scanner;
 
 /**
@@ -107,61 +99,6 @@ public abstract class User implements InterfaceUser, Choice {
      */
     public void disconnect() {
         System.out.println("A bientôt !");
-    }
-
-
-    public void showProduct() {
-        Main.testDriver();
-        DataBase database = new DataBase();
-        Connection conn = database.connectToDataBase();
-        try {
-            Statement state = conn.createStatement();
-            ResultSet result = state.executeQuery("SELECT * FROM products");
-            ResultSetMetaData resultMeta = result.getMetaData();
-
-            for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
-                while (result.next()) {
-                    System.out.println(result.getString("name") + " - " + result.getString("price") + "€");
-                }
-            }
-            result.close();
-            state.close();
-
-        } catch (Exception e) {
-            System.out.println(e);
-            e.printStackTrace();
-        }
-    }
-
-    void newProduct() {
-        int idProduct;
-        String nameProduct;
-        float priceProduct;
-        DataBase database = new DataBase();
-        Connection conn = database.connectToDataBase();
-
-        Product product = new Product();
-        System.out.println("Création de votre produit :");
-        System.out.println("Saisissez l'ID de votre produit :");
-        idProduct = sc.nextInt();
-        product.setId(idProduct);
-        System.out.println("Saisissez le nom de votre produit :");
-        nameProduct = sc.next();
-        product.setName(nameProduct);
-        System.out.println("Saisissez le prix de votre produit :");
-        priceProduct = sc.nextFloat();
-        product.setPrice(priceProduct);
-        System.out.println("Saisissez la quantité initiale de produits en stock :");
-        int quantity = sc.nextInt();
-        try {
-            Statement state = conn.createStatement();
-            state.executeUpdate("INSERT INTO products (product_id, name, price) VALUES ('" + idProduct + "','" + nameProduct + "','" + priceProduct + "')");
-            System.out.println("Produit bien ajouté à la base !");
-        } catch (Exception e) {
-            System.out.println(e + " - Annulation de la requête");
-        }
-        Productlist.getInstance().addProduct(product, quantity);
-        System.out.println("Votre produit a bien été créé !\n");
     }
 
     public abstract void showMenu();

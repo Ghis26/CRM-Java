@@ -31,7 +31,7 @@ public class BasketItem {
      * L'itemPrice définit le prix unitaire de l'item x quantité commandée.
      */
 
-    private float itemPrice;
+    private double itemPrice;
 
 // --------------------------------------------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ public class BasketItem {
     }
 
 
-    float getItemPrice() {
+    double getItemPrice() {
         return itemPrice;
     }
 
@@ -110,7 +110,7 @@ public class BasketItem {
      * @param productPrice;
      */
 
-    void multiply(float productPrice) {
+    void multiply(double productPrice) {
         itemPrice = productPrice * getQuantity();
     }
 }

@@ -1,12 +1,9 @@
 package fr.Users;
 
-import fr.DataBase.DataBase;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 import java.util.Scanner;
+
+import static fr.DataBase.DataBase.*;
+import static fr.company.Main.signUp;
 
 public class Administrateur extends User {
     private final String status;
@@ -69,7 +66,7 @@ public class Administrateur extends User {
                     stat = true;
                     break;
                 case ADD_USER:
-                    newUser();
+                    signUp();
                     stat = true;
                     break;
                 case SHOW_PRODUCTLIST:
@@ -85,76 +82,15 @@ public class Administrateur extends User {
                     stat = true;
                     break;
                 case DELETE_USER:
-                    deleteUser();
+                    System.out.println("Saisissez l'Id de l'utilisateur à supprimer :");
+                    int idUser = sc.nextInt();
+                    deleteUser(idUser);
                     break;
                 case LEAVE:
                     disconnect();
                     stat = false;
                     break;
             }
-        }
-    }
-
-    /**
-     * Méthode permettant d'afficher les utilisateurs présents dans la base de données.
-     */
-    private void showUsers() {
-        DataBase database = new DataBase();
-        Connection conn = database.connectToDataBase();
-        try {
-            Statement state = conn.createStatement();
-            ResultSet result = state.executeQuery("SELECT * FROM users");
-            ResultSetMetaData resultMeta = result.getMetaData();
-
-            for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
-                while (result.next()) {
-                    System.out.println(result.getString("login") + " - " + result.getString("password") + " - " + result.getString("statut"));
-                }
-            }
-            result.close();
-            state.close();
-
-        } catch (Exception e) {
-            System.out.println(e);
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Méthode permettant de créer un utilisateur dans la base de données
-     */
-    private void newUser() {
-        DataBase database = new DataBase();
-        Connection conn = database.connectToDataBase();
-        System.out.println("Saisissez le login de l'utilisateur à créer :");
-        String loginUser = sc.next();
-        System.out.println("Saisissez le password de l'utilisateur à créer :");
-        String passwordUser = sc.next();
-        System.out.println("Saisissez le statut de l'utilisateur à créer :");
-        String statusUser = sc.next();
-        try {
-            Statement state = conn.createStatement();
-            state.executeUpdate("INSERT INTO users ( login, password, statut) VALUES ('" + loginUser + "','" + passwordUser + "','" + statusUser + "')");
-            System.out.println("L'utilisateur " + loginUser + " a bien été créé !");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    /**
-     * méthode permettant de supprimer un utilisateur de la base de données.
-     */
-        private void deleteUser(){
-        DataBase database = new DataBase();
-        Connection conn = database.connectToDataBase();
-        System.out.println("Saisissez l'Id de l'utilisateur à supprimer :");
-        int idUser = sc.nextInt();
-        try{
-            Statement state = conn.createStatement();
-            state.executeUpdate("DELETE FROM users WHERE id ="+ idUser);
-            System.out.println("L'utilisateur a bien été supprimé !");
-        }catch (Exception e){
-            System.out.println(e);
         }
     }
 

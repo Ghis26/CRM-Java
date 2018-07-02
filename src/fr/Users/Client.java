@@ -2,10 +2,10 @@ package fr.Users;
 
 import fr.Basket.Basket;
 import fr.Basket.BasketItem;
-import fr.Basket.Product;
-import fr.Basket.Productlist;
 
 import java.util.Scanner;
+
+import static fr.DataBase.DataBase.showProduct;
 
 /**
  * La classe fr.Users.Client définit les attributs d'un client
@@ -93,12 +93,15 @@ public class Client extends User {
         this.budget = budget;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
     public void showMenu() {
         boolean stat = true;
         AllChoices userChoice;
 
-       while (stat) {
+        while (stat) {
             showChoices();
 
             System.out.println("Votre choix :");
@@ -146,13 +149,6 @@ public class Client extends User {
         System.out.println("Votre porte-monnaie : " + getBudget() + " €.\n");
     }
 
-
-    public void showProduct() {
-        System.out.println("Voici la liste des produits créés à ce jour : \n");
-        for (Product product : Productlist.getInstance().getProductCatalog()) {
-            System.out.println(product + "\n");
-        }
-    }
 
     /**
      * La méthode addToCart permet de créer un basketItem (id + quantité produit) + l'ajouter au panier.

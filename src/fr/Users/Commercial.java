@@ -13,6 +13,10 @@ import java.sql.Statement;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static fr.DataBase.DataBase.newProduct;
+import static fr.DataBase.DataBase.resupplyStock;
+import static fr.DataBase.DataBase.showProduct;
+
 
 public class Commercial extends User {
     private final String status;
@@ -73,7 +77,11 @@ public class Commercial extends User {
                     stat = true;
                     break;
                 case RESUPPLY_STOCK:
-                    resupplyStock();
+                    System.out.println("Veuillez saisir la référence produit : ");
+                    int refProduct = sc.nextInt();
+                    System.out.println("Saisissez le nombre de produits à ajouter au stock :");
+                    int nbItem = sc.nextInt();
+                    resupplyStock(refProduct, nbItem);
                     break;
                 case SHOW_PRODUCTLIST:
                     showProduct();
@@ -95,34 +103,5 @@ public class Commercial extends User {
         for (Commercial.AllChoices menuChoice : Commercial.AllChoices.values()) {
             System.out.println(menuChoice.ordinal() + " - " + menuChoice.textChoice);
         }
-    }
-
-    /**
-     * La méthode permet de réapprovisionner le stock
-     */
-    private void resupplyStock() {
-        Scanner sc = new Scanner(System.in);
-        Stock stockProducts = Productlist.getInstance().getStockProducts();
-        System.out.println("Veuillez saisir l'ID du produit : ");
-        int idProduct = sc.nextInt();
-        Product product = findProduct(idProduct);
-        System.out.println("Saisissez le nombre de produits à ajouter au stock :");
-        int nbItem = sc.nextInt();
-        stockProducts.addToStock(product.getName(), nbItem);
-    }
-
-    /**
-     * La méthode permet de trouver un produit dans le catalogue produit
-     *
-     * @param idProduct;
-     * @return product;
-     */
-    private Product findProduct(int idProduct) {
-        for (Product product : Productlist.getInstance().getProductCatalog()) {
-            if (product.getId() == idProduct) {
-                return product;
-            }
-        }
-        return null;
     }
 }
