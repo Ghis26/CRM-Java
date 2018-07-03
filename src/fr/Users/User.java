@@ -32,15 +32,6 @@ public abstract class User implements InterfaceUser, Choice {
     private String status;
 // --------------------------------------------------------------------------------------------------------------
 
-    /**
-     * Le constructeur permet d'initier les variables.
-     */
-
-    public User() {
-        this.login = "";
-        this.password = "";
-        }
-
     public User(String uLogin, String uPassword, String uStatus){
         login = uLogin;
         password = uPassword;
@@ -49,7 +40,7 @@ public abstract class User implements InterfaceUser, Choice {
 
     // --------------------------------------------------------------------------------------------------------------
     public String getStatut() {
-        return "";
+        return status;
     }
 
     public String getLogin() {
@@ -97,9 +88,6 @@ public abstract class User implements InterfaceUser, Choice {
     /**
      * La méthode disconnect termine le programme.
      */
-    public void disconnect() {
-        System.out.println("A bientôt !");
-    }
 
     public abstract void showMenu();
 

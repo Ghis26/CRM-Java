@@ -3,6 +3,8 @@ package fr.Basket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static fr.DataBase.DataBase.addCartItem;
+
 /**
  * La classe fr.Basket.fr.Basket définit le panier total du client. Il contient plusieurs BasketItems.
  *
@@ -12,6 +14,7 @@ import java.util.Scanner;
 
 
 public class Basket {
+    private int id;
 
     private Scanner sc = new Scanner(System.in);
 
@@ -53,6 +56,7 @@ public class Basket {
      */
 
     public Basket() {
+
         cart = new ArrayList<>(10);
         status = allStatus.EN_COURS;
         totalPrice = 0;
@@ -66,9 +70,8 @@ public class Basket {
      *
      * @return basketItems;
      */
-
-    public float getTotalPrice() {
-        return totalPrice;
+    public int getId() {
+        return id;
     }
 
     /**
@@ -83,41 +86,25 @@ public class Basket {
 
 // --------------------------------------------------------------------------------------------------------------
 
-    /**
-     * la méthode sum additionne les prix des produits contenus dans le panier.
-     */
+    public BasketItem createBasketItem(){
+        BasketItem basketItem = new BasketItem();
+        System.out.println("Saisissez la référence du produit que vous souhaitez ajouter au panier : ");
+        basketItem.setRef(sc.nextInt());
+        int idProduct = basketItem.getRef();
+        System.out.println("Saisissez la quantité de produits que vous souhaitez ajouter au panier : ");
+        basketItem.setQuantity(sc.nextInt());
+        int quantityProduct = basketItem.getQuantity();
+        addCartItem(idProduct,quantityProduct);
+//        basketItem.multiply;
+        cart.add(basketItem);
+        return basketItem;
+    }
+
     public void sum() {
         totalPrice = 0;
         for (BasketItem item : cart) {
             totalPrice += item.getItemPrice();
         }
     }
-
-    /**
-     * La méthode findProduct permet de récupérer l'objet Product correspondant à l'ID entré dans le basketItem.
-     *
-     * @param idBasketItem;
-     * @return null;
-     */
-    private Product findProduct(int idBasketItem) {
-        for (Product product : Productlist.getInstance().getProductCatalog()) {
-            if (product.getId() == idBasketItem) {
-                return product;
-            }
-        }
-        return null;
-    }
-
-    public BasketItem createBasketItem(){
-        BasketItem basketItem = new BasketItem();
-        System.out.println("Saisissez l'ID du produit que vous souhaitez ajouter au panier : ");
-        basketItem.setId(sc.nextInt());
-        System.out.println("Saisissez la quantité de produits que vous souhaitez ajouter au panier : ");
-        basketItem.setQuantity(sc.nextInt());
-        Product itemFound = findProduct(basketItem.getId());
-        basketItem.multiply(itemFound.getPrice());
-        return basketItem;
-    }
-
 }
 

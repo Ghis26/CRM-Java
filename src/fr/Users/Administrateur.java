@@ -3,10 +3,10 @@ package fr.Users;
 import java.util.Scanner;
 
 import static fr.DataBase.DataBase.*;
+import static fr.company.Main.disconnect;
 import static fr.company.Main.signUp;
 
 public class Administrateur extends User {
-    private final String status;
     private Scanner sc = new Scanner(System.in);
 
 
@@ -31,13 +31,8 @@ public class Administrateur extends User {
         }
     }
 
-    public Administrateur() {
-        super();
-        status = "administrateur";
-    }
-
-    public String getStatut() {
-        return status;
+    public Administrateur(String login, String password, String status) {
+        super(login, password, "administrateur");
     }
 
     public void showChoices() {

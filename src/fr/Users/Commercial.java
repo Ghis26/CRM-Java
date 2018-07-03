@@ -1,25 +1,12 @@
 package fr.Users;
 
-import fr.Basket.Product;
-import fr.Basket.Productlist;
-import fr.DataBase.DataBase;
-import fr.Stock.Stock;
-import fr.company.Main;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static fr.DataBase.DataBase.newProduct;
-import static fr.DataBase.DataBase.resupplyStock;
-import static fr.DataBase.DataBase.showProduct;
+import static fr.DataBase.DataBase.*;
+import static fr.company.Main.disconnect;
 
 
 public class Commercial extends User {
-    private final String status;
     private Scanner sc;
 
     private enum AllChoices {
@@ -43,14 +30,9 @@ public class Commercial extends User {
     }
 
 
-    public Commercial() {
-        super();
-        status = "commercial";
+    public Commercial(String login, String password, String status) {
+        super(login, password, "commercial");
         sc = new Scanner(System.in);
-    }
-
-    public String getStatut() {
-        return status;
     }
 
     public void showMenu() {
@@ -88,7 +70,7 @@ public class Commercial extends User {
                     stat = true;
                     break;
                 case SHOW_STOCK:
-                    Productlist.getInstance().displayStock();
+                    showStock();
                     stat = true;
                     break;
                 case LEAVE:

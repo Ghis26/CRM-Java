@@ -11,12 +11,12 @@ package fr.Basket;
 public class BasketItem {
 
     /**
-     * l'id permet d'identifier un produit ajouté dans le panier sous un numéro unique.
+     * l'ref permet d'identifier un produit ajouté dans le panier sous un numéro unique.
      *
-     * @see BasketItem#getId;
-     * @see BasketItem#setId(int);
+     * @see BasketItem#getRef ;
+     * @see BasketItem#setRef(int);
      */
-    private int id;
+    private int ref;
 
     /**
      * La quantity idnetifie la quantité de produits ajoutée dans le panier.
@@ -35,13 +35,12 @@ public class BasketItem {
 
 // --------------------------------------------------------------------------------------------------------------
 
-
     /**
-     * Constructeur qui permet d'initier les variables id et quantity lors de la création d'un nouvel objet.
+     * Constructeur qui permet d'initier les variables ref et quantity lors de la création d'un nouvel objet.
      */
 
     public BasketItem() {
-        id = 0;
+        ref = 0;
         quantity = 0;
         itemPrice = 0;
     }
@@ -51,12 +50,12 @@ public class BasketItem {
 
 
     /**
-     * Getter qui permet de retourner l'id du produit ajouté.
+     * Getter qui permet de retourner l'ref du produit ajouté.
      *
-     * @return id;
+     * @return ref;
      */
-    public int getId() {
-        return id;
+    public int getRef() {
+        return ref;
     }
 
 
@@ -65,7 +64,7 @@ public class BasketItem {
      *
      * @return quantity;
      */
-    public int getQuantity() {
+    int getQuantity() {
         return quantity;
     }
 
@@ -75,13 +74,13 @@ public class BasketItem {
     }
 
     /**
-     * Permet d'affecter l'id du produit à la variable.
+     * Permet d'affecter la ref du produit à la variable.
      *
-     * @param id;
+     * @param ref;
      */
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRef(int ref) {
+        this.ref = ref;
     }
 
     /**
@@ -89,7 +88,7 @@ public class BasketItem {
      *
      * @param quantity;
      */
-    public void setQuantity(int quantity) {
+    void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -101,14 +100,8 @@ public class BasketItem {
      * @return String;
      */
     public String toString() {
-        return "Id du Produit : " + this.getId() + ", quantité : " + getQuantity() + " pour un montant de : " + getItemPrice() + " €\n";
+        return "Id du Produit : " + this.getRef() + ", quantité : " + getQuantity() + " pour un montant de : " + getItemPrice() + " €\n";
     }
-
-    /**
-     * Permet de calculer le montant du BasketItem.
-     *
-     * @param productPrice;
-     */
 
     void multiply(double productPrice) {
         itemPrice = productPrice * getQuantity();

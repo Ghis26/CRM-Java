@@ -1,17 +1,19 @@
 package fr.company;
 
+import fr.Basket.Basket;
 import fr.Users.User;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
-import static fr.DataBase.DataBase.addUser;
+import static fr.DataBase.DataBase.*;
 
 public class Main {
 
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        testDriver();
         System.out.println("Avez-vous déjà un compte ? (O/N)");
         char choice = sc.next().charAt(0);
         User user;
@@ -24,55 +26,57 @@ public class Main {
                 signUp();
                 user = defineUser();
                 user.showMenu();
+                break;
+            default:
+                disconnect();
         }
     }
 
     private static User defineUser() {
+        String login;
+        String password;
+        String status;
         Scanner sc = new Scanner(System.in); // Permet de récupérer les éléments inscrits par l'utilisateur
-        User user = chooseUserType(sc);
-        defineLogin(sc, user);
-        definePassword(sc, user);
+
+        login = defineLogin(sc);
+        password = definePassword(sc);
+        status = verifyUser(login, password);
+        User user = chooseUserType(status, login, password);
+       if (status .equals("Client")){
+           Basket basket = createNewCart();
+       }
         return user;
     }
 
-    private static User chooseUserType(Scanner sc) {
-        while (true) {
-            System.out.println("Êtes-vous Client, Commercial ou Administrateur ?");
-            String userType = sc.next();
-            try {
-                return (User) Class.forName("fr.Users." + userType).newInstance();
-            } catch (ClassNotFoundException e) {
-                System.out.println(e + ". La classe n'existe pas");
-            } catch (InstantiationException i) {
-                System.out.println(i + ". Veuillez réessayer");
-            } catch (IllegalAccessException l) {
-                System.out.println(l + ". La classe n'est pas accessible");
-            } catch (NoClassDefFoundError n) {
-                System.out.println(n + "Veuillez réessayer");
-            }
-        }
-    }
-
-    private static void defineLogin(Scanner sc, User user) {
-        System.out.println("Veuillez saisir votre nom :");
-        user.setLogin(sc.next());
-    }
-
-    private static void definePassword(Scanner sc, User user) {
-        System.out.println("Veuillez saisir votre mot de passe :");
-        user.setPassword(sc.next());
-    }
-
-    /**
-     * Méthode permettant de tester le Driver piur accès à la DB.
-     */
-    private static void testDriver() {
+    private static User chooseUserType(String status, String login, String password) {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Driver OK");
-        } catch (ClassNotFoundException c) {
-            System.out.println(c+ "- Driver not found.");
+            Class<?> aClass = Class.forName("fr.Users." + status);
+            Constructor<?> constructor = aClass.getConstructor(String.class, String.class, String.class);
+            return (User) constructor.newInstance(login, password, status);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e + ". La classe n'existe pas");
+        } catch (InstantiationException i) {
+            System.out.println(i + ". Veuillez réessayer");
+        } catch (IllegalAccessException l) {
+            System.out.println(l + ". La classe n'est pas accessible");
+        } catch (NoClassDefFoundError n) {
+            System.out.println(n + "Veuillez réessayer");
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
+        return null;
+    }
+
+    private static String defineLogin(Scanner sc) {
+        System.out.println("Veuillez saisir votre nom :");
+        return sc.next();
+    }
+
+    private static String definePassword(Scanner sc) {
+        System.out.println("Veuillez saisir votre mot de passe :");
+        return sc.next();
     }
 
     /**
@@ -89,4 +93,9 @@ public class Main {
         String newType = sc.next();
         addUser(newLogin, newPassword, newType);
     }
+
+    public static void disconnect() {
+        System.out.println("A bientôt !");
+    }
+
 }

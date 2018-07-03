@@ -1,50 +1,23 @@
 package fr.DataBase;
 
+import fr.Basket.Basket;
 import fr.Basket.Product;
-import fr.Basket.Productlist;
 
 import java.sql.*;
 import java.util.Scanner;
 
-public class DataBase {
-    private static String url;
-    private static String user;
-    private static String password;
-    private static Connection connexion;
+import static fr.company.Main.disconnect;
 
+public abstract class DataBase {
 
-    // --------------------------------------------------------------------------------------------------------------
-
-    public DataBase() {
-        url = "jdbc:mysql://localhost:3306/javadb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
-        user = "ghis";
-        password = "Ghislain611";
-        connexion = null;
-    }
-
-    // --------------------------------------------------------------------------------------------------------------
-//                                          DB CONNECTION
-
-    private static Connection connectToDataBase() {
-        new DataBase();
-        try {
-            connexion = DriverManager.getConnection(url, user, password);
-            System.out.println("Connexion établie");
-        } catch (SQLException s) {
-            System.out.println(s);
-        }
-        return connexion;
-    }
 
     // --------------------------------------------------------------------------------------------------------------
 
 //                                              USERS
 
-
     public static void addUser(String newLogin, String newPassword, String newType) {
-        try {
-            String sql = "INSERT INTO users(login, password, statut ) VALUES (?,?,?)";
-            PreparedStatement preparedStatement = connectToDataBase().prepareStatement(sql);
+        String sql = "INSERT INTO users(login, password, statut ) VALUES (?,?,?)";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.setString(1, newLogin);
             preparedStatement.setString(2, newPassword);
             preparedStatement.setString(3, newType);
@@ -56,9 +29,8 @@ public class DataBase {
     }
 
     public static void showUsers() {
-        try {
-            String sql = "SELECT * FROM users";
-            PreparedStatement preparedStatement = connectToDataBase().prepareStatement(sql);
+        String sql = "SELECT login, password, statut FROM users";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.executeQuery();
 
         } catch (Exception e) {
@@ -69,12 +41,12 @@ public class DataBase {
 
     /**
      * méthode permettant de supprimer un utilisateur de la base de données.
+     *
      * @param idUser;
      */
     public static void deleteUser(int idUser) {
-        try {
-            String sql = "DELETE * FROM users WHERE id = ?";
-            PreparedStatement preparedStatement = connectToDataBase().prepareStatement(sql);
+        String sql = "DELETE * FROM users WHERE id = ?";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.setInt(1, idUser);
             preparedStatement.executeUpdate();
             System.out.println("L'utilisateur a bien été supprimé !");
@@ -83,6 +55,30 @@ public class DataBase {
         }
     }
 
+    /**
+     * Méthode permettant de vérifier si le login et le password sont bons.
+     *
+     * @param login;
+     * @param password;
+     * @return result;
+     */
+    public static String verifyUser(String login, String password) {
+        String sql = "SELECT statut FROM users WHERE login = ? AND password = ?";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
+            ResultSet result = preparedStatement.executeQuery();
+            if (!result.first()) {
+                return null;
+            }
+            return result.getString("statut");
+
+        } catch (Exception e) {
+            System.out.println("Mauvais login ou mot de passe");
+            disconnect();
+        }
+        return null;
+    }
     // --------------------------------------------------------------------------------------------------------------
 
 //                                              PRODUCTS
@@ -96,7 +92,7 @@ public class DataBase {
         int refProduct;
         double priceProduct;
 
-        Product product = new Product();
+        new Product();
         System.out.println("Création de votre produit :");
         System.out.println("Saisissez le nom de votre produit :");
         nameProduct = sc.next();
@@ -109,8 +105,7 @@ public class DataBase {
 
         try {
             String sql1 = "INSERT INTO products (name,reference, price) VALUES (?,?,?)";
-            try (Connection connection = connectToDataBase();
-                 PreparedStatement preparedStatement = connection.prepareStatement(sql1)) {
+            try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql1)) {
                 preparedStatement.setString(1, nameProduct);
                 preparedStatement.setInt(2, refProduct);
                 preparedStatement.setDouble(3, priceProduct);
@@ -118,8 +113,8 @@ public class DataBase {
                 System.out.println("Produit bien ajouté à la liste de produits !");
             }
 
-            String sql2 = "INSERT INTO stock(name, stock) VALUES (?,?,?)";
-            try (PreparedStatement preparedStatement = connectToDataBase().prepareStatement(sql2)) {
+            String sql2 = "INSERT INTO stock(name, reference, stock) VALUES (?,?,?)";
+            try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql2)) {
                 preparedStatement.setString(1, nameProduct);
                 preparedStatement.setInt(2, refProduct);
                 preparedStatement.setInt(3, quantity);
@@ -130,27 +125,41 @@ public class DataBase {
         } catch (Exception e) {
             System.out.println(e + " - Annulation de la requête");
         }
-        Productlist.getInstance().addProduct(product, quantity);
-        System.out.println("Votre produit a bien été créé !\n");
     }
 
     /**
      * Méthode permettant d'afficher la liste des produits
      */
     public static void showProduct() {
-        try {
-            String sql = "SELECT name,price FROM products";
-            PreparedStatement preparedStatement = connectToDataBase().prepareStatement(sql);
+        String sql = "SELECT name,reference, price FROM products";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             ResultSet result = preparedStatement.executeQuery();
             ResultSetMetaData resultMeta = result.getMetaData();
 
             for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
                 while (result.next()) {
-                    System.out.println(result.getString("name") + " - " + result.getString("price") + "€");
+                    System.out.println(result.getString("name") + " - référence produit : " + result.getInt("reference") + " - prix unitaire : " + result.getInt("price") + "€");
                 }
             }
         } catch (Exception e) {
             System.out.println(e);
+            e.printStackTrace();
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+//                                              STOCK
+
+    public static void showStock() {
+        String sql = "SELECT name, reference, stock FROM stock";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            ResultSet result = preparedStatement.executeQuery();
+            System.out.println();
+            while (result.next()) {
+                System.out.println(result.getString(1) + " - référence produit : " + result.getInt(2) + " - stock : " + result.getInt(3));
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -162,23 +171,54 @@ public class DataBase {
      * @param nbItem;
      */
     public static void resupplyStock(int refProduct, int nbItem) {
-        try {
-            String sql = "SELECT * FROM stock WHERE reference = ?";
-            PreparedStatement preparedStatement = connectToDataBase().prepareStatement(sql);
-            preparedStatement.setInt(1, refProduct);
-            ResultSet result = preparedStatement.executeQuery();
-            result.next();
-            int stockInit = result.getInt(3);
-            System.out.println("stock initial = " + stockInit);
-            int updateStock = stockInit + nbItem;
-            String sql2 = "INSERT INTO stock(stock) VALUES (?)";
-            PreparedStatement preparedStatement1 = connectToDataBase().prepareStatement(sql2);
-            preparedStatement1.setInt(1, updateStock);
-            preparedStatement1.executeUpdate();
+
+        String sql = "UPDATE stock SET stock = ? + stock WHERE reference = ?";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setInt(2, refProduct);
+            preparedStatement.setInt(1, nbItem);
+            preparedStatement.executeUpdate();
             System.out.println("Le stock a bien été mis à jour !");
 
         } catch (Exception e) {
-            System.out.println(e+ "- Votre produit n'est pas dans la base de données. Veuillez d'abord le créer");
+            System.out.println(e + "- Votre produit n'est pas dans la base de données. Veuillez d'abord le créer");
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+//                                              CART
+
+    public static Basket createNewCart() {
+        Basket basket = new Basket();
+        String sql2 = "INSERT INTO cart (status) VALUES (?)";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql2)) {
+            preparedStatement.setString(1, "EN_COURS");
+            preparedStatement.executeUpdate();
+            System.out.println("Votre panier a bien été initialisé !");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }return basket;
+    }
+
+     public static void addCartItem(int idProduct, int quantityProduct) {
+        String sql = "INSERT INTO cart_item (id_product, quantity) VALUES (?,?)";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setInt(1, idProduct);
+            preparedStatement.setInt(2, quantityProduct);
+            preparedStatement.executeUpdate();
+            System.out.println("L'ajout a bien été effectué !");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void payment(int idCart) {
+        String sql = "UPDATE cart SET status =PAYE WHERE id = ?";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setInt(1,idCart);
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

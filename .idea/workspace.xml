@@ -2,10 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91382bb6-cb9b-4123-91ed-876b04f9e440" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/fr/DataBase/ConnectDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c2edbf17-d6a3-4350-910d-5ff5926a370b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c2edbf17-d6a3-4350-910d-5ff5926a370b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/Basket.allStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/Basket.allStatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/Basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/Basket.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/BasketItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/BasketItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/Product.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/Product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Basket/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Basket/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/Administrateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/Administrateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/Client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/Commercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/Commercial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/Users/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/Users/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/allclasses-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Administrateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Administrateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Basket.allStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Basket.allStatus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Basket.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/BasketItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/BasketItem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Commercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Commercial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/Product.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/Product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/com/company/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/com/company/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/constant-values.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/deprecated-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Basket/Basket.allStatus.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Basket/Basket.allStatus.html" afterDir="false" />
@@ -31,8 +56,10 @@
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Stock/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Stock/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Stock/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Stock/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/Administrateur.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/Administrateur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/Choice.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/Choice.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/Client.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/Commercial.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/Commercial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/InterfaceUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/InterfaceUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/User.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/Userlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/Userlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Users/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Users/package-frame.html" afterDir="false" />
@@ -44,6 +71,7 @@
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Utilities/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Utilities/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/Utilities/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/Utilities/package-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/company/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/company/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/fr/company/Menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/company/Menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/company/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/company/package-frame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/company/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/company/package-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/fr/company/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/fr/company/package-tree.html" afterDir="false" />
@@ -54,6 +82,8 @@
       <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-12.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-13.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-16.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/index-files/index-4.html" afterDir="false" />
@@ -67,12 +97,13 @@
       <change beforePath="$PROJECT_DIR$/Javadoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-summary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/overview-tree.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Javadoc/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/Javadoc/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Basket$allStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Basket$allStatus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Basket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Basket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/BasketItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/BasketItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Basket/Productlist.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/DataBase/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/DataBase/DataBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Administrateur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Administrateur$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Administrateur$AllChoices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Administrateur$AllChoices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Administrateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Administrateur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Client.class" afterDir="false" />
@@ -80,15 +111,17 @@
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Commercial$AllChoices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Commercial$AllChoices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Commercial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Commercial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/Users/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/Users/Userlist.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CRM client/fr/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CRM client/fr/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/Basket/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Basket/Basket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/Basket/BasketItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Basket/BasketItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/Basket/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Basket/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/Basket/Productlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Basket/Productlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/Basket/Productlist.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/DataBase/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/DataBase/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/Users/Administrateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Users/Administrateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/Users/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Users/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/Users/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Users/Commercial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/Users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/Users/Userlist.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -131,32 +164,32 @@
         <item name="javadb@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="javadb: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="products: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="javadb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="javadb: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="stock: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="javadb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="javadb: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="users: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="cart_item: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fr/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="45" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3171#3172#0" expanded="true" />
+                <element signature="e#3220#3221#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fr/Users/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="153" column="21" lean-forward="true" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,29 +197,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Basket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/Basket/Basket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fr/Basket/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataBase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fr/DataBase/DataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="1950">
+              <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,6 +215,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Singleton" />
       </list>
     </option>
   </component>
@@ -209,20 +225,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c2edbf17-d6a3-4350-910d-5ff5926a370b/console.sql" />
         <option value="$PROJECT_DIR$/src/fr/IHM/Panel.java" />
         <option value="$PROJECT_DIR$/src/fr/IHM/Button.java" />
         <option value="$PROJECT_DIR$/src/fr/IHM/ButtonListener.java" />
         <option value="$PROJECT_DIR$/src/fr/IHM/Window.java" />
-        <option value="$PROJECT_DIR$/src/fr/Users/Client.java" />
-        <option value="$PROJECT_DIR$/src/fr/Users/User.java" />
-        <option value="$PROJECT_DIR$/src/fr/Users/Administrateur.java" />
-        <option value="$PROJECT_DIR$/src/fr/Users/Commercial.java" />
-        <option value="$PROJECT_DIR$/src/fr/Basket/BasketItem.java" />
-        <option value="$PROJECT_DIR$/src/fr/company/Main.java" />
         <option value="$PROJECT_DIR$/src/fr/Basket/Product.java" />
         <option value="$PROJECT_DIR$/src/fr/Basket/Productlist.java" />
+        <option value="$PROJECT_DIR$/src/fr/DataBase/Connection.java" />
+        <option value="$PROJECT_DIR$/src/fr/DataBase/Connexion.java" />
+        <option value="$PROJECT_DIR$/src/fr/DataBase/ConnectDB.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c2edbf17-d6a3-4350-910d-5ff5926a370b/console.sql" />
+        <option value="$PROJECT_DIR$/src/fr/Users/Commercial.java" />
+        <option value="$PROJECT_DIR$/src/fr/Users/Administrateur.java" />
+        <option value="$PROJECT_DIR$/src/fr/Users/User.java" />
         <option value="$PROJECT_DIR$/src/fr/DataBase/DataBase.java" />
+        <option value="$PROJECT_DIR$/src/fr/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/fr/Basket/BasketItem.java" />
+        <option value="$PROJECT_DIR$/src/fr/Users/Client.java" />
+        <option value="$PROJECT_DIR$/src/fr/Basket/Basket.java" />
       </list>
     </option>
   </component>
@@ -291,14 +311,21 @@
               <item name="CRM client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="fr" type="462c0819:PsiDirectoryNode" />
+              <item name="Stock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CRM client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CRM client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
               <item name="Users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -395,47 +422,89 @@
       <updated>1530105096462</updated>
       <workItem from="1530105102625" duration="6443000" />
       <workItem from="1530168167833" duration="19390000" />
-      <workItem from="1530514693077" duration="11487000" />
+      <workItem from="1530514693077" duration="24091000" />
+      <workItem from="1530600810151" duration="11410000" />
+      <workItem from="1530612940034" duration="10922000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37320000" />
+    <option name="totallyTimeSpent" value="72256000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32925585" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32985386" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32881" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5005208" side_tool="true" weight="0.32925585" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50104165" side_tool="true" weight="0.32925585" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.32925585" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49895832" visible="true" weight="0.32881" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32985386" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19739583" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18336888" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19509594" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32881" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39959225" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39874738" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="11" weight="0.32925585" />
+      <window_info anchor="bottom" id="Database Console" order="11" weight="0.33402923" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32881" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49895832" visible="true" weight="0.32881" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18336888" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39874738" />
+      <window_info anchor="bottom" id="Database Console" order="11" weight="0.33402923" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19509594" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32985386" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50104165" side_tool="true" weight="0.32925585" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32881" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -445,15 +514,107 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/fr/Users/User.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="database.connexion" />
+        <watch expression="database.connexion" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>database.connexion</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>result.first()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/fr/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3171#3172#0" expanded="true" />
+            <element signature="e#3220#3221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Users/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="152" column="27" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Basket/BasketItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="7" lean-forward="true" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3213">
+          <caret line="194" column="50" selection-start-line="194" selection-start-column="50" selection-end-line="194" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3171#3172#0" expanded="true" />
+            <element signature="e#3220#3221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c2edbf17-d6a3-4350-910d-5ff5926a370b/schema/javadb/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="62" column="59" lean-forward="true" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/Users/Administrateur.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
@@ -477,6 +638,8 @@
           <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3171#3172#0" expanded="true" />
+            <element signature="e#3220#3221#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -488,30 +651,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c2edbf17-d6a3-4350-910d-5ff5926a370b/schema/javadb/table/products">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c2edbf17-d6a3-4350-910d-5ff5926a370b/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Stock/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/IHM/Button.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,9 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -544,45 +684,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Users/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/Basket/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="46" lean-forward="true" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2377#2378#0" expanded="true" />
-            <element signature="e#2406#2407#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="576">
+          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Users/User.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/Users/Userlist.java" />
+    <entry file="file://$PROJECT_DIR$/Javadoc/fr/Users/Userlist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="211">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Basket/BasketItem.java">
+    <entry file="file://$PROJECT_DIR$/src/fr/Basket/Productlist.java" />
+    <entry file="file://$PROJECT_DIR$/src/fr/Stock/Stock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="289">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="19" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Users/Commercial.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/Scanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="83" column="54" lean-forward="true" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="54" />
+        <state relative-caret-position="211">
+          <caret line="863" selection-start-line="863" selection-end-line="863" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c2edbf17-d6a3-4350-910d-5ff5926a370b/schema/javadb/table/stock">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="381" column="29" selection-start-line="381" selection-start-column="29" selection-end-line="381" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -593,10 +738,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Users/Administrateur.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c2edbf17-d6a3-4350-910d-5ff5926a370b/schema/javadb/table/products">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c2edbf17-d6a3-4350-910d-5ff5926a370b/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+          <caret column="72" selection-start-column="72" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/DataBase/ConnectDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="1821" column="26" selection-start-line="1821" selection-start-column="26" selection-end-line="1821" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Users/Commercial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Users/Administrateur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="37" selection-end-line="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Users/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c2edbf17-d6a3-4350-910d-5ff5926a370b/schema/javadb/table/cart">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://c2edbf17-d6a3-4350-910d-5ff5926a370b/schema/javadb/table/cart_item">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Basket/BasketItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Basket/Basket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/Users/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="153" column="21" lean-forward="true" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fr/DataBase/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1950">
+          <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -605,41 +861,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fr/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="45" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Basket/Basket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Basket/Productlist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/Basket/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fr/DataBase/DataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3171#3172#0" expanded="true" />
+            <element signature="e#3220#3221#0" expanded="true" />
           </folding>
         </state>
       </provider>

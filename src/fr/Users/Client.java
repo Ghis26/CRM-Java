@@ -5,7 +5,9 @@ import fr.Basket.BasketItem;
 
 import java.util.Scanner;
 
+import static fr.DataBase.DataBase.payment;
 import static fr.DataBase.DataBase.showProduct;
+import static fr.company.Main.disconnect;
 
 /**
  * La classe fr.Users.Client définit les attributs d'un client
@@ -15,8 +17,6 @@ import static fr.DataBase.DataBase.showProduct;
  */
 
 public class Client extends User {
-
-    private final String status;
 
     private Scanner sc = new Scanner(System.in);
     /**
@@ -64,12 +64,10 @@ public class Client extends User {
      * (admettons qu'un panier ne peut contenir plus de 10 articles)
      */
 
-
-    public Client() {
-        super();
-        budget = 100;
+    public Client(String login, String password, String status) {
+        super(login, password, "client");
+       budget = 100;
         basket = new Basket();
-        status = "client";
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -93,9 +91,6 @@ public class Client extends User {
         this.budget = budget;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
     public void showMenu() {
         boolean stat = true;
@@ -155,37 +150,27 @@ public class Client extends User {
      */
     private void addtoCart() {
         showProduct();
-        BasketItem basketItem = basket.createBasketItem();
-        basket.cart.add(basketItem);
+        basket.createBasketItem();
         basket.sum();
-        System.out.println("l'ajout au panier a bien été fait ! Le montant total du panier s'élève à : " + basket.getTotalPrice() + " €\n");
     }
-
 
     /**
      * La méthode showCart permet d'afficher le panier en cours.
      */
     private void showCart() {
         System.out.println("Voici la liste des produits dans votre panier : \n");
-        if (basket != null) {
-            for (int i = 0; i < basket.cart.size(); i++) {
-                System.out.println(basket.cart.get(i).toString() + "\n");
-            }
-        }
+       for (BasketItem item : basket.cart){
+           System.out.println(item.toString());
+       }
     }
 
     /**
      * La méthode cartPayment permet de régler le panier ainsi que de changer son statut.
      */
     private void cartPayment() {
-        if (basket.getTotalPrice() <= getBudget()) {
-            System.out.println("Votre panier a bien été reglé ! Merci !\n");
-            basket.setStatus(Basket.allStatus.PAYE);
-        } else {
-            System.out.println("Veuillez réapprovisionner votre compte merci !\n");
-            basket.setStatus(Basket.allStatus.ANNULE);
-
-        }
+        int idCart = basket.getId();
+        payment(idCart);
+        System.out.println("Votre panier a bien été reglé. Merci !");
     }
 
     /**
