@@ -5,9 +5,7 @@ import fr.Basket.BasketItem;
 
 import java.util.Scanner;
 
-import static fr.DataBase.DataBase.payment;
-import static fr.DataBase.DataBase.showProduct;
-import static fr.company.Main.disconnect;
+import static fr.DataBase.DataBase.*;
 
 /**
  * La classe fr.Users.Client définit les attributs d'un client
@@ -22,7 +20,6 @@ public class Client extends User {
     /**
      * La variable budget définit le montant du portefeuille du client à sa création.
      *
-     * @see Client#getBudget;
      * @see Client#setBudget(double);
      */
     private double budget;
@@ -62,24 +59,19 @@ public class Client extends User {
     /**
      * Constructeur permettant d'initier le budget initial du client, ainsi qu'un tableau de 10 cases
      * (admettons qu'un panier ne peut contenir plus de 10 articles)
+     *
+     * @param login;
+     * @param password;
+     * @param status;
      */
 
     public Client(String login, String password, String status) {
         super(login, password, "client");
-       budget = 100;
         basket = new Basket();
+
     }
 
     // --------------------------------------------------------------------------------------------------------------
-
-    /**
-     * Getter permettant de retourner le budget disponible du client.
-     *
-     * @return budget;
-     */
-    public double getBudget() {
-        return budget;
-    }
 
     /**
      * Permet d'actualiser le budget du client.
@@ -141,7 +133,8 @@ public class Client extends User {
 
     public void showProfile() {
         super.showProfile();
-        System.out.println("Votre porte-monnaie : " + getBudget() + " €.\n");
+        double budget = getCurrentBudget(getLogin());
+        System.out.println("Votre porte-monnaie actuel s'élève à "+budget+ "€\n");
     }
 
 
@@ -150,8 +143,8 @@ public class Client extends User {
      */
     private void addtoCart() {
         showProduct();
-        basket.createBasketItem();
-        basket.sum();
+        BasketItem basketItem = basket.createBasketItem();
+        basket.basketItemToCart(basketItem);
     }
 
     /**
@@ -159,18 +152,24 @@ public class Client extends User {
      */
     private void showCart() {
         System.out.println("Voici la liste des produits dans votre panier : \n");
-       for (BasketItem item : basket.cart){
-           System.out.println(item.toString());
-       }
+        double total = basket.sum();
+        System.out.println("Le montant de votre panier s'élève à : " + total + " €\n");
     }
 
     /**
      * La méthode cartPayment permet de régler le panier ainsi que de changer son statut.
      */
     private void cartPayment() {
-        int idCart = basket.getId();
-        payment(idCart);
-        System.out.println("Votre panier a bien été reglé. Merci !");
+        String login = getLogin();
+        int idCart = searchCart(login);
+        double totalPrice = basket.getTotalPrice();
+        double budget = getCurrentBudget(login);
+        if (budget > totalPrice) {
+            payment(idCart, budget, totalPrice);
+            System.out.println("Votre panier a bien été reglé. Merci !");
+        } else {
+            System.out.println("Solde insuffisant, veuillez réapprovisionner votre porte-monnaie.");
+        }
     }
 
     /**
@@ -178,10 +177,12 @@ public class Client extends User {
      */
     private void resupplyBudget() {
         double amount;
+        String login = getLogin();
         System.out.println("Saisissez le montant que vous souhaitez ajouter à votre porte-monnaie : ");
         amount = sc.nextDouble();
-        setBudget(amount + getBudget());
-        System.out.println("Votre porte-monnaie est maintenant de " + getBudget() + " €.\n");
+        addBudget(getLogin(), amount);
+        double currentBudget = getCurrentBudget(login);
+        System.out.println("Votre porte-monnaie est maintenant de " + currentBudget + " €.\n");
     }
 
 
@@ -192,6 +193,13 @@ public class Client extends User {
         for (AllChoices menuChoice : AllChoices.values()) {
             System.out.println(menuChoice.ordinal() + " - " + menuChoice.textChoice);
         }
+    }
+
+    public void disconnect() {
+        String login = getLogin();
+        int idCart = searchCart(login);
+        cancelCart(idCart);
+        System.out.println("A bientôt !");
     }
 }
 

@@ -92,18 +92,20 @@ public class BasketItem {
         this.quantity = quantity;
     }
 
-// --------------------------------------------------------------------------------------------------------------
+    void setItemPrice(double itemPrice) {
+        this.itemPrice = itemPrice;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
 
     /**
      * Permet de retourner les données de l'objet contenues dans le tableau sous forme de phrase.
+     * @param itemPrice;
      *
      * @return String;
      */
-    public String toString() {
-        return "Id du Produit : " + this.getRef() + ", quantité : " + getQuantity() + " pour un montant de : " + getItemPrice() + " €\n";
-    }
-
-    void multiply(double productPrice) {
-        itemPrice = productPrice * getQuantity();
+    public String toString(double itemPrice) {
+        return "référence produit : " + this.getRef() + ", quantité : " + getQuantity() + " pour un montant de "+itemPrice+" €\n";
     }
 }

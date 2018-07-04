@@ -1,5 +1,7 @@
 package fr.Basket;
 
+import fr.DataBase.DataBase;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +16,6 @@ import static fr.DataBase.DataBase.addCartItem;
 
 
 public class Basket {
-    private int id;
 
     private Scanner sc = new Scanner(System.in);
 
@@ -23,12 +24,12 @@ public class Basket {
      *
      */
 
-    public ArrayList<BasketItem> cart;
+    private ArrayList<BasketItem> cart;
 
     /**
      * L'enumération allSstatus est la liste de tous les statuts possibles du panier.
      */
-    public enum allStatus {
+    private enum allStatus {
         EN_COURS,
         PAYE,
         ANNULE,
@@ -41,11 +42,7 @@ public class Basket {
     private allStatus status;
 
 
-    /**
-     * La variable productId récupère l'ID du produit.
-     */
-
-    private float totalPrice;
+    private double totalPrice;
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -65,15 +62,6 @@ public class Basket {
 
 // --------------------------------------------------------------------------------------------------------------
 
-     /**
-     * La méthode getBasketItems permet de retourner le contenu actuel du fr.Basket.fr.Basket.
-     *
-     * @return basketItems;
-     */
-    public int getId() {
-        return id;
-    }
-
     /**
      * La méthode setStatus permet d'affecter le statut actuel du basket à la variable status.
      *
@@ -83,28 +71,48 @@ public class Basket {
         this.status = status;
     }
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
 
-// --------------------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Méthode permettant de créer un nouvel Item.
+     * @return basketItem;
+     */
     public BasketItem createBasketItem(){
         BasketItem basketItem = new BasketItem();
         System.out.println("Saisissez la référence du produit que vous souhaitez ajouter au panier : ");
         basketItem.setRef(sc.nextInt());
-        int idProduct = basketItem.getRef();
         System.out.println("Saisissez la quantité de produits que vous souhaitez ajouter au panier : ");
         basketItem.setQuantity(sc.nextInt());
-        int quantityProduct = basketItem.getQuantity();
-        addCartItem(idProduct,quantityProduct);
-//        basketItem.multiply;
-        cart.add(basketItem);
         return basketItem;
     }
 
-    public void sum() {
-        totalPrice = 0;
+
+    /**
+     * Méthode ajoutant l'Item au Cart (DB + objet).
+     * @param basketItem;
+     */
+    public void basketItemToCart(BasketItem basketItem){
+        int quantityProduct = basketItem.getQuantity();
+        int idProduct = basketItem.getRef();
+        addCartItem(idProduct,quantityProduct);
+        cart.add(basketItem);
+    }
+
+    /**
+     * Méthode faisant la somme du prix et de la quantité.
+     * @return totalPrice;
+     */
+    public double sum() {
         for (BasketItem item : cart) {
+            double productPrice = DataBase.productPrice(item.getRef());
+            item.setItemPrice(item.getQuantity()* productPrice);
+            System.out.println(item.toString(item.getItemPrice()));
             totalPrice += item.getItemPrice();
-        }
+        } return totalPrice;
     }
 }
 

@@ -1,10 +1,10 @@
 package fr.company;
 
-import fr.Basket.Basket;
 import fr.Users.User;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Random;
 import java.util.Scanner;
 
 import static fr.DataBase.DataBase.*;
@@ -32,7 +32,7 @@ public class Main {
         }
     }
 
-    private static User defineUser() {
+    private static User defineUser(){
         String login;
         String password;
         String status;
@@ -42,9 +42,9 @@ public class Main {
         password = definePassword(sc);
         status = verifyUser(login, password);
         User user = chooseUserType(status, login, password);
-       if (status .equals("Client")){
-           Basket basket = createNewCart();
-       }
+        if (status.equals("Client")) {
+            createNewCart(login);
+        }
         return user;
     }
 
@@ -92,6 +92,22 @@ public class Main {
         System.out.println("Veuillez saisir le type d'utilisateur : ");
         String newType = sc.next();
         addUser(newLogin, newPassword, newType);
+        if (newType.equals("Client")) {
+            double budget = randomBudget();
+            addBudget(newLogin, budget);
+        }
+    }
+
+    /**
+     * Méthode retournant le budget sous forme de random.
+     *
+     * @return budget;
+     */
+    private static double randomBudget() {
+        double min = 50d;
+        double max = 500d;
+        return (double) Math.round(min + new Random().nextDouble() * (max - min) * 100) / 100;
+
     }
 
     public static void disconnect() {
