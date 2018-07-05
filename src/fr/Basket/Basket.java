@@ -71,10 +71,6 @@ public class Basket {
         this.status = status;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
     // --------------------------------------------------------------------------------------------------------------
 
     /**
@@ -94,25 +90,12 @@ public class Basket {
     /**
      * Méthode ajoutant l'Item au Cart (DB + objet).
      * @param basketItem;
+     * @param idCart;
      */
-    public void basketItemToCart(BasketItem basketItem){
+    public void basketItemToCart(BasketItem basketItem, int idCart){
         int quantityProduct = basketItem.getQuantity();
         int idProduct = basketItem.getRef();
-        addCartItem(idProduct,quantityProduct);
-        cart.add(basketItem);
-    }
-
-    /**
-     * Méthode faisant la somme du prix et de la quantité.
-     * @return totalPrice;
-     */
-    public double sum() {
-        for (BasketItem item : cart) {
-            double productPrice = DataBase.productPrice(item.getRef());
-            item.setItemPrice(item.getQuantity()* productPrice);
-            System.out.println(item.toString(item.getItemPrice()));
-            totalPrice += item.getItemPrice();
-        } return totalPrice;
+        addCartItem(idProduct,quantityProduct, idCart);
     }
 }
 

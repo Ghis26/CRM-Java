@@ -14,7 +14,6 @@ public class Administrateur extends User {
         SHOW_PROFILE("Affichez votre profil"),
         MODIF_PROFILE("Modifiez votre profil"),
         ADD_USER("Ajouter un utilisateur"),
-        ADD_PRODUCT("Ajouter un produit à la liste"),
         SHOW_PRODUCTLIST("Voir la liste des produits"),
         SHOW_USERLIST("Voir la liste des utilisateurs"),
         DELETE_USER("Supprimez un utilisateur"),
@@ -66,10 +65,6 @@ public class Administrateur extends User {
                     break;
                 case SHOW_PRODUCTLIST:
                     showProduct();
-                    stat = true;
-                    break;
-                case ADD_PRODUCT:
-                    newProduct();
                     stat = true;
                     break;
                 case SHOW_USERLIST:

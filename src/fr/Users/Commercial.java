@@ -1,5 +1,7 @@
 package fr.Users;
 
+import fr.Basket.Product;
+
 import java.util.Scanner;
 
 import static fr.DataBase.DataBase.*;
@@ -16,6 +18,7 @@ public class Commercial extends User {
         RESUPPLY_STOCK("Réapprovisionnez le stock produit"),
         SHOW_PRODUCTLIST("Voir la liste des produits"),
         SHOW_STOCK("Voir le stock disponible"),
+        SHOW_CARTS("Voir les commandes et leur statut"),
         LEAVE("Quittez le programme");
 
         private String textChoice;
@@ -55,7 +58,7 @@ public class Commercial extends User {
                     stat = true;
                     break;
                 case ADD_PRODUCT:
-                    newProduct();
+                    addNewProduct();
                     stat = true;
                     break;
                 case RESUPPLY_STOCK:
@@ -73,6 +76,10 @@ public class Commercial extends User {
                     showStock();
                     stat = true;
                     break;
+                case SHOW_CARTS:
+                    showCarts();
+                    stat = true;
+                    break;
                 case LEAVE:
                     disconnect();
                     stat = false;
@@ -85,5 +92,25 @@ public class Commercial extends User {
         for (Commercial.AllChoices menuChoice : Commercial.AllChoices.values()) {
             System.out.println(menuChoice.ordinal() + " - " + menuChoice.textChoice);
         }
+    }
+
+    private void addNewProduct() {
+        Scanner sc = new Scanner(System.in);
+        String nameProduct;
+        int refProduct;
+        double priceProduct;
+
+        new Product();
+        System.out.println("Création de votre produit :");
+        System.out.println("Saisissez le nom de votre produit :");
+        nameProduct = sc.next();
+        System.out.println("Saisissez la référence produit :");
+        refProduct = sc.nextInt();
+        System.out.println("Saisissez le prix de votre produit :");
+        priceProduct = sc.nextDouble();
+        System.out.println("Saisissez la quantité initiale de produits en stock :");
+        int quantity = sc.nextInt();
+
+        newProduct(nameProduct, refProduct, priceProduct, quantity);
     }
 }

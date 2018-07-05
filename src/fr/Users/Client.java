@@ -37,6 +37,7 @@ public class Client extends User {
         MODIF_PROFILE("Modifiez votre profil"),
         SHOW_PRODUCTLIST("Voir la liste des produits"),
         ADD_PRODUCT_TO_CART("Ajoutez un produit au panier"),
+        REMOVE_PRODUCT("Retirez un produit du panier"),
         SHOW_CART("Voir votre panier"),
         PAYMENT("Payez votre panier"),
         RESUPPLY("Réapprovisionnez votre porte-monnaie"),
@@ -87,6 +88,8 @@ public class Client extends User {
     public void showMenu() {
         boolean stat = true;
         AllChoices userChoice;
+        String login = getLogin();
+        int idCart = searchCart(login);
 
         while (stat) {
             showChoices();
@@ -96,7 +99,7 @@ public class Client extends User {
             userChoice = AllChoices.find(sc.nextInt());
             switch (userChoice) {
                 case SHOW_PROFILE:
-                    showProfile();
+                    showProfile(login);
                     stat = true;
                     break;
                 case MODIF_PROFILE:
@@ -104,87 +107,39 @@ public class Client extends User {
                     stat = true;
                     break;
                 case SHOW_PRODUCTLIST:
+                    System.out.println("Voici les produits disponibles : \n");
                     showProduct();
                     stat = true;
                     break;
                 case ADD_PRODUCT_TO_CART:
-                    addtoCart();
+                    addtoCart(idCart);
+                    stat = true;
+                    break;
+                case REMOVE_PRODUCT:
+                    deleteProduct(idCart);
                     stat = true;
                     break;
                 case SHOW_CART:
-                    showCart();
+                    showCart(idCart);
                     stat = true;
                     break;
                 case PAYMENT:
-                    cartPayment();
+                    cartPayment(login, idCart);
                     stat = true;
                     break;
                 case RESUPPLY:
-                    resupplyBudget();
+                    resupplyBudget(login);
                     stat = true;
                     break;
                 case LEAVE:
-                    disconnect();
+                    disconnect(idCart);
                     stat = false;
                     break;
             }
         }
     }
 
-    public void showProfile() {
-        super.showProfile();
-        double budget = getCurrentBudget(getLogin());
-        System.out.println("Votre porte-monnaie actuel s'élève à "+budget+ "€\n");
-    }
-
-
-    /**
-     * La méthode addToCart permet de créer un basketItem (id + quantité produit) + l'ajouter au panier.
-     */
-    private void addtoCart() {
-        showProduct();
-        BasketItem basketItem = basket.createBasketItem();
-        basket.basketItemToCart(basketItem);
-    }
-
-    /**
-     * La méthode showCart permet d'afficher le panier en cours.
-     */
-    private void showCart() {
-        System.out.println("Voici la liste des produits dans votre panier : \n");
-        double total = basket.sum();
-        System.out.println("Le montant de votre panier s'élève à : " + total + " €\n");
-    }
-
-    /**
-     * La méthode cartPayment permet de régler le panier ainsi que de changer son statut.
-     */
-    private void cartPayment() {
-        String login = getLogin();
-        int idCart = searchCart(login);
-        double totalPrice = basket.getTotalPrice();
-        double budget = getCurrentBudget(login);
-        if (budget > totalPrice) {
-            payment(idCart, budget, totalPrice);
-            System.out.println("Votre panier a bien été reglé. Merci !");
-        } else {
-            System.out.println("Solde insuffisant, veuillez réapprovisionner votre porte-monnaie.");
-        }
-    }
-
-    /**
-     * La méthode ressuplyBudget permet de réapprovisionner le porte-monnaie du client.
-     */
-    private void resupplyBudget() {
-        double amount;
-        String login = getLogin();
-        System.out.println("Saisissez le montant que vous souhaitez ajouter à votre porte-monnaie : ");
-        amount = sc.nextDouble();
-        addBudget(getLogin(), amount);
-        double currentBudget = getCurrentBudget(login);
-        System.out.println("Votre porte-monnaie est maintenant de " + currentBudget + " €.\n");
-    }
-
+    // --------------------------------------------------------------------------------------------------------------
 
     /**
      * La méthode showChoices permet d'afficher les différents choix identifiés dans l'enum.
@@ -195,9 +150,83 @@ public class Client extends User {
         }
     }
 
-    public void disconnect() {
-        String login = getLogin();
-        int idCart = searchCart(login);
+
+    /**
+     * Méthode permettant d'afficher le profil utilisateur.
+     * @param login;
+     */
+    public void showProfile(String login) {
+        super.showProfile();
+        double budget = getCurrentBudget(login);
+        System.out.println("Votre porte-monnaie actuel s'élève à " + budget + "€\n");
+    }
+
+
+    /**
+     * La méthode addToCart permet de créer un basketItem (id + quantité produit) + l'ajouter au panier.
+     * @param idCart;
+     */
+    private void addtoCart(int idCart) {
+        System.out.println("Voici les produits disponibles : \n");
+        showProduct();
+        BasketItem basketItem = basket.createBasketItem();
+        basket.basketItemToCart(basketItem, idCart);
+    }
+
+    /**
+     * La méthode showCart permet d'afficher le panier en cours.
+     */
+    private void showCart(int idCart) {
+        System.out.println("Voici la liste des produits dans votre panier : \n");
+        double totalPrice = showAllCart(idCart);
+        System.out.println("Le montant total de votre panier s'élève à " + totalPrice + " €\n");
+    }
+
+    /**
+     * La méthode cartPayment permet de régler le panier ainsi que de changer son statut.
+     */
+    private void cartPayment(String login, int idCart) {
+        System.out.println("Voici le récapitulatif de votre panier : ");
+        double totalPrice = showAllCart(idCart);
+        System.out.println("Total de votre panier : "+totalPrice +"€\n");
+        double budget = getCurrentBudget(login);
+        if (budget > totalPrice) {
+            payment(idCart, budget, totalPrice);
+            System.out.println("Votre panier a bien été reglé. Merci !");
+        } else {
+            System.out.println("Solde insuffisant, veuillez réapprovisionner votre porte-monnaie.");
+        }
+    }
+
+    /**
+     * Méthode permettant de retirer un produit du panier.
+     */
+    private void deleteProduct(int idCart) {
+        showCart(idCart);
+        System.out.println("Saisissez la référence du produit que vous souhaitez retirer du panier : ");
+        int refProduct = sc.nextInt();
+        removeProduct(refProduct);
+    }
+
+
+    /**
+     * La méthode permet de réapprovisionner le porte-monnaie du client.
+     */
+    private void resupplyBudget(String login) {
+        double amount;
+        System.out.println("Saisissez le montant que vous souhaitez ajouter à votre porte-monnaie : ");
+        amount = sc.nextDouble();
+        addBudget(login, amount);
+        double currentBudget = getCurrentBudget(login);
+        System.out.println("Votre porte-monnaie est maintenant de " + currentBudget + " €.\n");
+    }
+
+
+    /**
+     * Méthode permettant la sortie du programme.
+     * @param idCart;
+     */
+    public void disconnect(int idCart) {
         cancelCart(idCart);
         System.out.println("A bientôt !");
     }

@@ -1,10 +1,8 @@
 package fr.DataBase;
 
 import fr.Basket.Basket;
-import fr.Basket.Product;
 
 import java.sql.*;
-import java.util.Scanner;
 
 import static fr.company.Main.disconnect;
 
@@ -17,6 +15,7 @@ public abstract class DataBase {
 
     /**
      * Méthode permettant l'ajout d'un user dans la DB.
+     *
      * @param newLogin;
      * @param newPassword;
      * @param newType;
@@ -38,10 +37,12 @@ public abstract class DataBase {
      * Méthode affichant la liste des users actuellement créés dans la DB.
      */
     public static void showUsers() {
-        String sql = "SELECT login, password, statut FROM users";
+        String sql = "SELECT id, login, password, statut FROM users";
         try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
-            preparedStatement.executeQuery();
-
+           ResultSet result = preparedStatement.executeQuery();
+           while (result.next()){
+               System.out.println("ID : "+result.getInt(1)+" - Login : "+result.getString(2)+ " - Password : "+result.getString(3)+" - Statut : "+result.getString(4));
+           }
         } catch (Exception e) {
             System.out.println(e + "- Problème de base de données, veuillez réessayer.");
             e.printStackTrace();
@@ -50,6 +51,7 @@ public abstract class DataBase {
 
     /**
      * Méthode recherchant dans la DB le user actuellement connecté.
+     *
      * @param login;
      * @return idUser;
      */
@@ -60,9 +62,10 @@ public abstract class DataBase {
             ResultSet result = preparedStatement.executeQuery();
             result.first();
             return result.getInt(1);
-            } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        }return 0;
+        }
+        return 0;
     }
 
     /**
@@ -71,7 +74,7 @@ public abstract class DataBase {
      * @param idUser;
      */
     public static void deleteUser(int idUser) {
-        String sql = "DELETE * FROM users WHERE id = ?";
+        String sql = "DELETE FROM users WHERE id = ?";
         try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.setInt(1, idUser);
             preparedStatement.executeUpdate();
@@ -106,27 +109,28 @@ public abstract class DataBase {
         return null;
     }
 
-    public static void addBudget(String login, double budget){
+    public static void addBudget(String login, double budget) {
         String sql = "UPDATE users SET budget = ? + budget WHERE login = ?";
-        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)){
-            preparedStatement.setDouble(1,budget);
-            preparedStatement.setString(2,login);
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setDouble(1, budget);
+            preparedStatement.setString(2, login);
             preparedStatement.executeUpdate();
-            }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static double getCurrentBudget(String login){
+    public static double getCurrentBudget(String login) {
         String sql = "SELECT budget FROM users WHERE id = (SELECT id FROM users WHERE login = ?)";
-        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)){
-            preparedStatement.setString(1,login);
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setString(1, login);
             ResultSet result = preparedStatement.executeQuery();
             result.first();
             return result.getDouble(1);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }return 0;
+        }
+        return 0;
     }
     // --------------------------------------------------------------------------------------------------------------
 
@@ -134,24 +138,12 @@ public abstract class DataBase {
 
     /**
      * méthode permettant de créer un produit
+     * @param nameProduct;
+     * @param refProduct;
+     * @param priceProduct;
+     * @param quantity;
      */
-    public static void newProduct() {
-        Scanner sc = new Scanner(System.in);
-        String nameProduct;
-        int refProduct;
-        double priceProduct;
-
-        new Product();
-        System.out.println("Création de votre produit :");
-        System.out.println("Saisissez le nom de votre produit :");
-        nameProduct = sc.next();
-        System.out.println("Saisissez la référence produit :");
-        refProduct = sc.nextInt();
-        System.out.println("Saisissez le prix de votre produit :");
-        priceProduct = sc.nextDouble();
-        System.out.println("Saisissez la quantité initiale de produits en stock :");
-        int quantity = sc.nextInt();
-
+    public static void newProduct(String nameProduct, int refProduct, double priceProduct, int quantity) {
         try {
             String sql1 = "INSERT INTO products (name,reference, price) VALUES (?,?,?)";
             try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql1)) {
@@ -196,22 +188,15 @@ public abstract class DataBase {
         }
     }
 
-    /**
-     * méthode retrouvant dans la DB le prix du produit en donnant sa référence en paramètre.
-     * @param refProduct;
-     * @return int price;
-     */
-    public static double productPrice(int refProduct) {
-        String sql = "SELECT price FROM products WHERE reference = ?";
+    public static void removeProduct(int refProduct) {
+        String sql = "DELETE * FROM cart_item WHERE id_product = ?";
         try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.setInt(1, refProduct);
-            ResultSet result = preparedStatement.executeQuery();
-            result.first();
-            return result.getInt(1);
+            preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return 0;
+
     }
 
 
@@ -261,6 +246,7 @@ public abstract class DataBase {
 
     /**
      * Méthode permettant de créer un nouveau panier.
+     *
      * @param login;
      * @return basket;
      */
@@ -270,7 +256,7 @@ public abstract class DataBase {
         String sql2 = "INSERT INTO cart (status, id_user) VALUES (?,?)";
         try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql2)) {
             preparedStatement.setString(1, "EN_COURS");
-            preparedStatement.setInt(2,idUser);
+            preparedStatement.setInt(2, idUser);
             preparedStatement.executeUpdate();
             System.out.println("Votre panier a bien été initialisé !");
         } catch (Exception e) {
@@ -281,6 +267,7 @@ public abstract class DataBase {
 
     /**
      * Méthode permettant de rechercher le panier actuel dans la DB.
+     *
      * @param login;
      * @return idCart.
      */
@@ -299,15 +286,45 @@ public abstract class DataBase {
     }
 
     /**
+     * méthode permettant d'afficher le contenu du panier ainsi que le montant total.
+     * @param idCart;
+     * @return totalPrice;
+     */
+
+    public static double showAllCart(int idCart) {
+        double totalPrice = 0;
+        String sql = "SELECT cart_item.id_product,cart_item.quantity, products.price FROM cart_item, products WHERE cart_item.id_cart = ? AND cart_item.id_product = products.reference";
+        try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
+            preparedStatement.setInt(1, idCart);
+            ResultSet result = preparedStatement.executeQuery();
+            while (result.next()) {
+                double quantity = (double) result.getInt(2);
+                double price = result.getDouble(3);
+                double itemPrice = quantity * price;
+                totalPrice += itemPrice;
+                System.out.println("référence produit : " + result.getInt(1) + " - quantité : " + result.getInt("cart_item.quantity") + " - prix total : " + itemPrice + "€");
+            } return totalPrice;
+        } catch (
+                Exception e)
+        {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    /**
      * Méthode ajoutant un Item dans le panier.
+     *
      * @param idProduct;
      * @param quantityProduct;
+     * @param idCart;
      */
-    public static void addCartItem(int idProduct, int quantityProduct) {
-        String sql = "INSERT INTO cart_item (id_product, quantity) VALUES (?,?)";
+    public static void addCartItem(int idProduct, int quantityProduct, int idCart) {
+        String sql = "INSERT INTO cart_item (id_product, quantity, id_cart) VALUES (?,?,?)";
         try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.setInt(1, idProduct);
             preparedStatement.setInt(2, quantityProduct);
+            preparedStatement.setInt(3, idCart);
             preparedStatement.executeUpdate();
             System.out.println("L'ajout a bien été effectué !");
         } catch (Exception e) {
@@ -317,14 +334,16 @@ public abstract class DataBase {
 
     /**
      * Méthode permettant le paiement du panier.
+     *
      * @param idCart;
+     * @param budget;
      * @param totalPrice;
      */
     public static void payment(int idCart, double budget, double totalPrice) {
         String sql = "UPDATE cart,users  SET cart.status ='PAYE',cart.total_price = ?,users.budget = ? WHERE cart.id = ?";
         try (PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)) {
             preparedStatement.setDouble(1, totalPrice);
-            preparedStatement.setDouble(2,budget - totalPrice);
+            preparedStatement.setDouble(2, budget - totalPrice);
             preparedStatement.setInt(3, idCart);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
@@ -334,6 +353,7 @@ public abstract class DataBase {
 
     /**
      * Méthode permettant l'annulation du panier.
+     *
      * @param idCart;
      */
     public static void cancelCart(int idCart) {
@@ -343,6 +363,22 @@ public abstract class DataBase {
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println("Votre panier a déjà été réglé.");
+        }
+    }
+
+    /**
+     * Méthode permettant d'afficher l'ensemble des paniers de la base de données ainsi que leur statut.
+     */
+    public static void showCarts(){
+        String sql = "SELECT id, status, total_price FROM cart WHERE status != 'ANNULE'";
+        try(PreparedStatement preparedStatement = ConnectDB.getInstance().prepareStatement(sql)){
+          ResultSet result =   preparedStatement.executeQuery();
+            System.out.println("Liste des paniers :");
+            while (result.next()){
+                System.out.println("Id du panier : "+result.getInt(1)+" - montant total : "+result.getDouble(3)+" € - Statut : " +result.getString(2));
+          }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
